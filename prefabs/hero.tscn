@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2amurd3kdhel"]
+
+[ext_resource type="Script" path="res://scripts/hero.gd" id="1_35nd0"]
+[ext_resource type="SpriteFrames" uid="uid://bmhk7w7rco5ka" path="res://assets/Meta data assets files/Visuals/CHARACTERS/player/hero_sprite_frames.tres" id="1_saips"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vk1ef"]
+radius = 6.08276
+
+[node name="Hero" type="CharacterBody2D"]
+script = ExtResource("1_35nd0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vk1ef")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_saips")
+animation = &"idle_down"
+autoplay = "idle_down"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
