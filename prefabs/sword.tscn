@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://dryedq7fcyqo7"]
+
+[ext_resource type="Script" path="res://scripts/sword_swing.gd" id="1_hufl4"]
+[ext_resource type="Texture2D" uid="uid://bxbgruiwli0g5" path="res://assets/Meta data assets files/Visuals/OBJECTS/items/sword.png" id="1_wiso4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8fq0"]
+radius = 1.0
+height = 16.9706
+
+[node name="Sword" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+monitorable = false
+script = ExtResource("1_hufl4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(11, -11)
+texture = ExtResource("1_wiso4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(11, -11)
+rotation = 0.785398
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_q8fq0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
