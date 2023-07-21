@@ -3,3 +3,4 @@ Team **Gaming Begins Now**'s entry into [My First Game Jam: Summer 2023](https:/
 
 # Acknowledgements
 Placeholder pre-prototype art: https://ansimuz.itch.io/top-down-adventure-assets
+https://o-lobster.itch.io/simple-dungeon-crawler-16x16-pixel-pack

@@ -1,0 +1,17 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://dj60hxwm8dynr"]
+
+[ext_resource type="Texture2D" uid="uid://dw41boagnxags" path="res://assets/Meta data assets files/Visuals/ENVIRONMENT/sea/sea1.png" id="1_m1qeb"]
+[ext_resource type="Texture2D" uid="uid://biimvpfbt3wsi" path="res://assets/Meta data assets files/Visuals/ENVIRONMENT/sea/sea2.png" id="2_m4l3d"]
+[ext_resource type="Texture2D" uid="uid://qwrfrca1g03u" path="res://assets/Meta data assets files/Visuals/ENVIRONMENT/sea/sea3.png" id="3_xdy37"]
+[ext_resource type="Texture2D" uid="uid://b56labq575t55" path="res://assets/Meta data assets files/Visuals/ENVIRONMENT/sea/sea4.png" id="4_7k26y"]
+
+[resource]
+frames = 4
+speed_scale = 5.0
+frame_0/texture = ExtResource("1_m1qeb")
+frame_1/texture = ExtResource("2_m4l3d")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_xdy37")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_7k26y")
+frame_3/duration = 1.0
