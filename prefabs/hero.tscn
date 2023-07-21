@@ -4,21 +4,19 @@
 [ext_resource type="SpriteFrames" uid="uid://bmhk7w7rco5ka" path="res://assets/Meta data assets files/Visuals/CHARACTERS/player/hero_sprite_frames.tres" id="1_saips"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vk1ef"]
-radius = 6.0
+radius = 6.08276
 
 [node name="Hero" type="CharacterBody2D"]
-motion_mode = 1
 script = ExtResource("1_35nd0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_vk1ef")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
 sprite_frames = ExtResource("1_saips")
 animation = &"idle_down"
 autoplay = "idle_down"
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
+zoom = Vector2(4, 4)
 position_smoothing_enabled = true
