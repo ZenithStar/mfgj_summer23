@@ -16,9 +16,9 @@ shape = SubResource("CircleShape2D_vk1ef")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -2)
 sprite_frames = ExtResource("1_saips")
-animation = &"idle_down"
+animation = &"walk_down"
 autoplay = "idle_down"
+frame_progress = 0.391502
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
 position_smoothing_enabled = true

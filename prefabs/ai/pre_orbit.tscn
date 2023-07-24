@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://0a0ul2g6l2p6"]
+
+[ext_resource type="Script" path="res://prefabs/ai/pre_orbit.gd" id="1_4fa4x"]
+
+[node name="PreOrbit" type="Node"]
+script = ExtResource("1_4fa4x")

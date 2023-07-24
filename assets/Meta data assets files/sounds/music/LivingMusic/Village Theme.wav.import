@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://mn6ns75t3h4a"
+path="res://.godot/imported/Village Theme.wav-17d9d8b33514ea86a90d4132c0879827.sample"
+
+[deps]
+
+source_file="res://assets/Meta data assets files/sounds/music/LivingMusic/Village Theme.wav"
+dest_files=["res://.godot/imported/Village Theme.wav-17d9d8b33514ea86a90d4132c0879827.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

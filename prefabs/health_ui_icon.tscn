@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://do1p6iqxj7n43"]
+
+[ext_resource type="Texture2D" uid="uid://c5knph7xv4ceu" path="res://assets/Meta data assets files/Visuals/FX/feedback/shot-4.png" id="1_ffcer"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_ffcer")

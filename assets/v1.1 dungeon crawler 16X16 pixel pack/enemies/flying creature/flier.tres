@@ -1,0 +1,26 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cdbwbvrp3o5sf"]
+
+[ext_resource type="Texture2D" uid="uid://2lyf6p34ikro" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f0.png" id="1_54ufm"]
+[ext_resource type="Texture2D" uid="uid://dyr1tdyaxsunc" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f1.png" id="2_cvmk4"]
+[ext_resource type="Texture2D" uid="uid://ulitarmlhj77" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f2.png" id="3_1304l"]
+[ext_resource type="Texture2D" uid="uid://e82ib52psq5d" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/fly_anim_f3.png" id="4_aqfal"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_54ufm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_cvmk4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1304l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aqfal")
+}],
+"loop": true,
+"name": &"fly",
+"speed": 5.0
+}]

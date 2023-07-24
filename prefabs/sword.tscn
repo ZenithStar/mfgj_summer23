@@ -20,7 +20,6 @@ texture = ExtResource("1_wiso4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(11, -11)
 rotation = 0.785398
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_q8fq0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

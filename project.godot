@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
+Globals="*res://scripts/globals.gd"
 
 [display]
 
@@ -74,3 +75,4 @@ action={
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_vertices_to_pixel=true
