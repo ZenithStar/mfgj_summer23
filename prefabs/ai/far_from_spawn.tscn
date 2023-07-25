@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://4hanm3wnt5gu"]
+
+[ext_resource type="Script" path="res://prefabs/ai/far_from_spawn.gd" id="1_jg1jv"]
+
+[node name="FarFromSpawn" type="Node"]
+script = ExtResource("1_jg1jv")

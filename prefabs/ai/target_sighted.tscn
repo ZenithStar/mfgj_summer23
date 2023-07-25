@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://prefabs/ai/target_sighted.gd" id="1_6qhud"]
 
-[node name="TargetSighted" type="Node"]
+[node name="TargetInRange" type="Node"]
 script = ExtResource("1_6qhud")

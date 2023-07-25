@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bd4xkstaqln3m"]
+[gd_scene load_steps=24 format=3 uid="uid://bd4xkstaqln3m"]
 
 [ext_resource type="Script" path="res://scripts/bat.gd" id="1_jso4m"]
 [ext_resource type="SpriteFrames" uid="uid://cdbwbvrp3o5sf" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/flier.tres" id="1_u5jt1"]
@@ -9,8 +9,10 @@
 [ext_resource type="PackedScene" uid="uid://cmmnyywipci2m" path="res://prefabs/ai/low_hp.tscn" id="6_sokal"]
 [ext_resource type="PackedScene" uid="uid://lqx3ugixas1d" path="res://prefabs/ai/target_sighted.tscn" id="7_1trkb"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/leaves/action.gd" id="8_yrjg4"]
+[ext_resource type="PackedScene" uid="uid://4hanm3wnt5gu" path="res://prefabs/ai/far_from_spawn.tscn" id="9_3xpqp"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="9_k838t"]
 [ext_resource type="PackedScene" uid="uid://bsili00atopun" path="res://prefabs/ai/patrol.tscn" id="10_llqhl"]
+[ext_resource type="PackedScene" uid="uid://eni0qq7i11su" path="res://prefabs/ai/has_target.tscn" id="11_3e74d"]
 [ext_resource type="PackedScene" uid="uid://cc6fmpfhuxu1v" path="res://prefabs/ai/orbit.tscn" id="11_vni1q"]
 [ext_resource type="PackedScene" uid="uid://0a0ul2g6l2p6" path="res://prefabs/ai/pre_orbit.tscn" id="12_e1w7d"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/decorators/RandomTimeLimiterDecorator.gd" id="12_j80wp"]
@@ -24,17 +26,39 @@ radius = 4.0
 script/source = "extends Area2D
 
 func _on_body_entered(body):
-	if body is Hero:
+	if body == $\"..\":
+		pass
+	elif body is Hero:
 		$\"..\".establish_target(body)
 	elif body is Enemy:
 		$\"..\".nearby_friendlies[body] = null
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	pass
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_khpvr"]
 radius = 100.0
+
+[sub_resource type="Animation" id="Animation_j6286"]
+resource_name = "exclaim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gjfkr"]
+_data = {
+"exclaim": SubResource("Animation_j6286")
+}
 
 [node name="Spawn" type="Node2D"]
 
@@ -52,7 +76,20 @@ animation = &"fly"
 autoplay = "fly"
 frame_progress = 0.00307654
 
+[node name="RichTextLabel" type="RichTextLabel" parent="Bat"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -1.0
+offset_top = -18.0
+offset_right = 6.0
+offset_bottom = 5.0
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 10
+text = "!"
+
 [node name="Detection" type="Area2D" parent="Bat"]
+collision_layer = 0
+collision_mask = 3
+monitorable = false
 script = SubResource("GDScript_46cpb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bat/Detection"]
@@ -72,12 +109,9 @@ script = ExtResource("5_p0i0k")
 [node name="Flee" type="Node" parent="Bat/BatEnemyAI/Either/Low HP"]
 script = ExtResource("5_p0i0k")
 
-[node name="TargetSighted" parent="Bat/BatEnemyAI/Either/Low HP/Flee" instance=ExtResource("7_1trkb")]
+[node name="TargetInRange" parent="Bat/BatEnemyAI/Either/Low HP/Flee" instance=ExtResource("7_1trkb")]
 
 [node name="Flee" type="Node" parent="Bat/BatEnemyAI/Either/Low HP/Flee"]
-script = ExtResource("8_yrjg4")
-
-[node name="Recover" type="Node" parent="Bat/BatEnemyAI/Either/Low HP"]
 script = ExtResource("8_yrjg4")
 
 [node name="High HP" type="Node" parent="Bat/BatEnemyAI/Either"]
@@ -86,32 +120,46 @@ script = ExtResource("4_imk3u")
 [node name="Patrol" type="Node" parent="Bat/BatEnemyAI/Either/High HP"]
 script = ExtResource("5_p0i0k")
 
-[node name="NotTargetSighted" type="Node" parent="Bat/BatEnemyAI/Either/High HP/Patrol"]
+[node name="Either" type="Node" parent="Bat/BatEnemyAI/Either/High HP/Patrol"]
+script = ExtResource("4_imk3u")
+
+[node name="FarFromSpawn" parent="Bat/BatEnemyAI/Either/High HP/Patrol/Either" instance=ExtResource("9_3xpqp")]
+
+[node name="NotHasTarget" type="Node" parent="Bat/BatEnemyAI/Either/High HP/Patrol/Either"]
 script = ExtResource("9_k838t")
 
-[node name="TargetSighted" parent="Bat/BatEnemyAI/Either/High HP/Patrol/NotTargetSighted" instance=ExtResource("7_1trkb")]
+[node name="HasTarget" parent="Bat/BatEnemyAI/Either/High HP/Patrol/Either/NotHasTarget" instance=ExtResource("11_3e74d")]
 
-[node name="Patrol" parent="Bat/BatEnemyAI/Either/High HP/Patrol" instance=ExtResource("10_llqhl")]
+[node name="SelectorComposite" type="Node" parent="Bat/BatEnemyAI/Either/High HP/Patrol"]
+script = ExtResource("4_imk3u")
+
+[node name="Recover" type="Node" parent="Bat/BatEnemyAI/Either/High HP/Patrol/SelectorComposite"]
+script = ExtResource("8_yrjg4")
+
+[node name="Patrol" parent="Bat/BatEnemyAI/Either/High HP/Patrol/SelectorComposite" instance=ExtResource("10_llqhl")]
 
 [node name="Attack" type="Node" parent="Bat/BatEnemyAI/Either/High HP"]
 script = ExtResource("5_5o2i8")
 
 [node name="PreOrbit" parent="Bat/BatEnemyAI/Either/High HP/Attack" instance=ExtResource("12_e1w7d")]
 
-[node name="DoneOrbitting" type="Node" parent="Bat/BatEnemyAI/Either/High HP/Attack"]
-script = ExtResource("9_k838t")
-
-[node name="OrbitTimeout" type="Node" parent="Bat/BatEnemyAI/Either/High HP/Attack/DoneOrbitting"]
+[node name="OrbitTimeout" type="Node" parent="Bat/BatEnemyAI/Either/High HP/Attack"]
 script = ExtResource("12_j80wp")
-wait_time = 9.9807
+success_on_timeout = true
+wait_time = 6.00084
 
-[node name="Orbit" parent="Bat/BatEnemyAI/Either/High HP/Attack/DoneOrbitting/OrbitTimeout" instance=ExtResource("11_vni1q")]
+[node name="Orbit" parent="Bat/BatEnemyAI/Either/High HP/Attack/OrbitTimeout" instance=ExtResource("11_vni1q")]
 
 [node name="Charge" type="Node" parent="Bat/BatEnemyAI/Either/High HP/Attack"]
 script = ExtResource("13_18scf")
 wait_time = 4.0
 
 [node name="Charge" parent="Bat/BatEnemyAI/Either/High HP/Attack/Charge" instance=ExtResource("16_ac5d8")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bat"]
+libraries = {
+"": SubResource("AnimationLibrary_gjfkr")
+}
 
 [connection signal="body_entered" from="Bat/Detection" to="Bat/Detection" method="_on_body_entered"]
 [connection signal="body_exited" from="Bat/Detection" to="Bat/Detection" method="_on_body_exited"]

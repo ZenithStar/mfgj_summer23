@@ -4,7 +4,7 @@ class_name SwordSwing
 @export var swing_duration = 0.3
 @export var swing_angle = 90.0
 @export var radius_offset = 6.0
-@export var damage: int = 25
+@export var damage: float = 1.0
 @export var knockback = 100.0
 
 @onready var elapsed = 0.0

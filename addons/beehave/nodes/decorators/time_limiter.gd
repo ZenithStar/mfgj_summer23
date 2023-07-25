@@ -5,6 +5,7 @@
 @icon("../../icons/limiter.svg")
 class_name TimeLimiterDecorator extends Decorator
 
+@export var success_on_timeout:bool = false
 @export var wait_time: = 0.0
 
 var time_left: = 0.0
@@ -32,7 +33,7 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	else:
 		child.after_run(actor, blackboard)
 		interrupt(actor, blackboard)
-		return FAILURE
+		return SUCCESS if success_on_timeout else FAILURE
 
 
 func before_run(actor: Node, blackboard: Blackboard) -> void:

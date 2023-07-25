@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://dl56gjn01n5xb"]
+[gd_scene load_steps=5 format=3 uid="uid://dl56gjn01n5xb"]
 
 [ext_resource type="PackedScene" uid="uid://b2amurd3kdhel" path="res://prefabs/hero.tscn" id="1_5lrl8"]
 [ext_resource type="TileSet" uid="uid://3xa6maqlkqba" path="res://assets/Texture/Cainos.tres" id="2_1gsiv"]
-[ext_resource type="PackedScene" uid="uid://de5serssk1vpr" path="res://prefabs/goblin.tscn" id="3_yl00n"]
 [ext_resource type="PackedScene" uid="uid://bd4xkstaqln3m" path="res://prefabs/bat.tscn" id="4_73rny"]
 [ext_resource type="PackedScene" uid="uid://b2udr2jakhwsl" path="res://prefabs/ai/overlay_ui.tscn" id="6_xmpuw"]
 
@@ -24,9 +23,6 @@ layer_1/tile_data = PackedInt32Array(458716, 196616, 2, -720931, 196616, 3, -196
 [node name="Hero" parent="." instance=ExtResource("1_5lrl8")]
 position = Vector2(-517, -95)
 motion_mode = 0
-
-[node name="Goblin" parent="." instance=ExtResource("3_yl00n")]
-position = Vector2(-60, -216)
 
 [node name="Bat" parent="." instance=ExtResource("4_73rny")]
 position = Vector2(-751, -338)
