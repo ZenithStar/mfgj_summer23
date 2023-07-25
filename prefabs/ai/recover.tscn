@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba025s2xj13mw"]
+
+[ext_resource type="Script" path="res://prefabs/ai/recover.gd" id="1_f26vx"]
+
+[node name="Recover" type="Node"]
+script = ExtResource("1_f26vx")

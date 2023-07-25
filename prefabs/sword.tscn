@@ -9,7 +9,7 @@ height = 16.9706
 
 [node name="Sword" type="Area2D"]
 collision_layer = 0
-collision_mask = 2
+collision_mask = 240
 monitorable = false
 script = ExtResource("1_hufl4")
 

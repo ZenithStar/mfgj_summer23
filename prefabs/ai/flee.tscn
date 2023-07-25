@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxqiqx50rb1bs"]
+
+[ext_resource type="Script" path="res://prefabs/ai/flee.gd" id="1_i64pe"]
+
+[node name="Flee" type="Node"]
+script = ExtResource("1_i64pe")

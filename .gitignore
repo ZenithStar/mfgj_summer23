@@ -1,3 +1,6 @@
+builds/
+.aseprite_wizard_history
+
 # Godot 4+ specific ignores
 .godot/
 

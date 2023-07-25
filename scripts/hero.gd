@@ -19,7 +19,7 @@ var sword_class : PackedScene = preload("res://prefabs/sword.tscn")
 @onready var sword: SwordSwing = null
 @onready var last_move_vector: Vector2 = Vector2(0.0,1.0)
 @onready var external_impulse: Vector2 = Vector2.ZERO
-@onready var current_hp = 100
+@onready var current_hp = Globals.life
 
 func _physics_process(_delta):
 	var input_direction = Input.get_vector(move_left, move_right, move_up, move_down)
@@ -61,4 +61,5 @@ func take_hit(damage: int, knockback: Vector2):
 		current_hp -= damage
 		external_impulse = knockback 
 		state = State.IMMUNE
+		$AnimationPlayer.play("damaged")
 			
