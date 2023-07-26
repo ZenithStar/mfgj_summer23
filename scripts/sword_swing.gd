@@ -18,4 +18,5 @@ func _physics_process(delta):
 func _on_body_entered(body):
 	var angle = rotation + $CollisionShape2D.rotation
 	if body is Enemy:
+		$HitSFX.play()
 		body.take_hit( damage , knockback * Vector2(sin(angle), -cos(angle)))

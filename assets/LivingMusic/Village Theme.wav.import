@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://mn6ns75t3h4a"
-path="res://.godot/imported/Village Theme.wav-17d9d8b33514ea86a90d4132c0879827.sample"
+path="res://.godot/imported/Village Theme.wav-19baad3cee104f76fc9d71aa984b286c.sample"
 
 [deps]
 
-source_file="res://assets/Meta data assets files/sounds/music/LivingMusic/Village Theme.wav"
-dest_files=["res://.godot/imported/Village Theme.wav-17d9d8b33514ea86a90d4132c0879827.sample"]
+source_file="res://assets/LivingMusic/Village Theme.wav"
+dest_files=["res://.godot/imported/Village Theme.wav-19baad3cee104f76fc9d71aa984b286c.sample"]
 
 [params]
 

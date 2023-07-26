@@ -62,4 +62,5 @@ func take_hit(damage: int, knockback: Vector2):
 		external_impulse = knockback 
 		state = State.IMMUNE
 		$AnimationPlayer.play("damaged")
+		$HitSFX.play()
 			

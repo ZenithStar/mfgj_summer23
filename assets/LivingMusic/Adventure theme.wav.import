@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b32hdhhkwo3bk"
-path="res://.godot/imported/Adventure theme.wav-c4be778badb46427fada1410624d2b01.sample"
+path="res://.godot/imported/Adventure theme.wav-016a08145a55abddae17a182a57685cd.sample"
 
 [deps]
 
-source_file="res://assets/Meta data assets files/sounds/music/LivingMusic/Adventure theme.wav"
-dest_files=["res://.godot/imported/Adventure theme.wav-c4be778badb46427fada1410624d2b01.sample"]
+source_file="res://assets/LivingMusic/Adventure theme.wav"
+dest_files=["res://.godot/imported/Adventure theme.wav-016a08145a55abddae17a182a57685cd.sample"]
 
 [params]
 

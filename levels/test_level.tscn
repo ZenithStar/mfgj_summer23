@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dl56gjn01n5xb"]
+[gd_scene load_steps=6 format=3 uid="uid://dl56gjn01n5xb"]
 
 [ext_resource type="PackedScene" uid="uid://b2amurd3kdhel" path="res://prefabs/hero.tscn" id="1_5lrl8"]
 [ext_resource type="TileSet" uid="uid://3xa6maqlkqba" path="res://assets/Texture/Cainos.tres" id="2_1gsiv"]
 [ext_resource type="PackedScene" uid="uid://bd4xkstaqln3m" path="res://prefabs/bat.tscn" id="4_73rny"]
+[ext_resource type="AudioStream" uid="uid://dxombxg71xbvm" path="res://assets/LivingMusic/enemy.wav" id="5_tmucg"]
 [ext_resource type="PackedScene" uid="uid://b2udr2jakhwsl" path="res://prefabs/ai/overlay_ui.tscn" id="6_xmpuw"]
 
 [node name="Test Level" type="Node2D"]
@@ -75,3 +76,8 @@ position = Vector2(-474, -256)
 position = Vector2(-389, -255)
 
 [node name="HUD" parent="." instance=ExtResource("6_xmpuw")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_tmucg")
+volume_db = -10.0
+autoplay = true

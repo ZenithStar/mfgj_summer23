@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://tg21c2m20c2k"
-path="res://.godot/imported/Adventure Overworld theme.wav-ed2088e357e0253c118ffeba132d20e2.sample"
+path="res://.godot/imported/Adventure Overworld theme.wav-763ab632f799c289cdae9f82bb0e7be3.sample"
 
 [deps]
 
-source_file="res://assets/Meta data assets files/sounds/music/LivingMusic/Adventure Overworld theme.wav"
-dest_files=["res://.godot/imported/Adventure Overworld theme.wav-ed2088e357e0253c118ffeba132d20e2.sample"]
+source_file="res://assets/LivingMusic/Adventure Overworld theme.wav"
+dest_files=["res://.godot/imported/Adventure Overworld theme.wav-763ab632f799c289cdae9f82bb0e7be3.sample"]
 
 [params]
 

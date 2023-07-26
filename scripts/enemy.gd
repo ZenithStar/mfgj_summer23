@@ -51,6 +51,7 @@ func establish_target(body):
 	if target == null and not check_far_from_spawn():
 		target = body
 		$AnimationPlayer.play("exclaim")
+		$AlertedSFX.play()
 		for friend in friends():
 			if friend.target == null:
 				friend.establish_target(body)

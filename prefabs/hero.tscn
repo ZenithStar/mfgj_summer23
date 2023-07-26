@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://b2amurd3kdhel"]
+[gd_scene load_steps=8 format=3 uid="uid://b2amurd3kdhel"]
 
 [ext_resource type="Script" path="res://scripts/hero.gd" id="1_35nd0"]
 [ext_resource type="SpriteFrames" uid="uid://bmhk7w7rco5ka" path="res://assets/Meta data assets files/Visuals/CHARACTERS/player/hero_sprite_frames.tres" id="1_saips"]
+[ext_resource type="AudioStream" uid="uid://dpoghggshbuoe" path="res://assets/Meta data assets files/sounds/fx/thorn.wav" id="3_tfj4s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vk1ef"]
 radius = 6.0
@@ -62,6 +63,9 @@ frame_progress = 0.391502
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+
+[node name="HitSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_tfj4s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

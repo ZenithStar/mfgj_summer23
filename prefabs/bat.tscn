@@ -1,8 +1,9 @@
-[gd_scene load_steps=29 format=3 uid="uid://bd4xkstaqln3m"]
+[gd_scene load_steps=30 format=3 uid="uid://bd4xkstaqln3m"]
 
 [ext_resource type="Script" path="res://scripts/bat.gd" id="1_jso4m"]
 [ext_resource type="SpriteFrames" uid="uid://cdbwbvrp3o5sf" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/flier.tres" id="1_u5jt1"]
 [ext_resource type="Script" path="res://prefabs/ai/BatEnemyAI.gd" id="2_qkhfp"]
+[ext_resource type="AudioStream" uid="uid://dsmobkj451sj3" path="res://assets/Meta data assets files/sounds/fx/select.wav" id="3_rl07a"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="4_imk3u"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector_reactive.gd" id="4_mhx13"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="5_5o2i8"]
@@ -149,6 +150,10 @@ theme_override_colors/default_color = Color(1, 0, 0, 1)
 theme_override_font_sizes/normal_font_size = 10
 text = "!"
 
+[node name="AlertedSFX" type="AudioStreamPlayer2D" parent="Bat"]
+stream = ExtResource("3_rl07a")
+volume_db = -20.0
+
 [node name="Detection" type="Area2D" parent="Bat"]
 collision_layer = 0
 collision_mask = 33
@@ -207,7 +212,7 @@ script = ExtResource("5_5o2i8")
 [node name="OrbitTimeout" type="Node" parent="Bat/BatEnemyAI/SelectorReactiveComposite/High HP/Attack"]
 script = ExtResource("12_j80wp")
 success_on_timeout = true
-wait_time = 6.01467
+wait_time = 8.2739
 
 [node name="Orbit" parent="Bat/BatEnemyAI/SelectorReactiveComposite/High HP/Attack/OrbitTimeout" instance=ExtResource("11_vni1q")]
 
