@@ -1,12 +1,12 @@
 [gd_scene load_steps=5 format=3 uid="uid://dryedq7fcyqo7"]
 
 [ext_resource type="Script" path="res://scripts/sword_swing.gd" id="1_hufl4"]
-[ext_resource type="Texture2D" uid="uid://bxbgruiwli0g5" path="res://assets/Meta data assets files/Visuals/OBJECTS/items/sword.png" id="1_wiso4"]
+[ext_resource type="Texture2D" uid="uid://da72ksp76081g" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_sword_1.png" id="2_3snwx"]
 [ext_resource type="AudioStream" uid="uid://dpoghggshbuoe" path="res://assets/Meta data assets files/sounds/fx/thorn.wav" id="3_f6efm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8fq0"]
-radius = 1.0
-height = 16.9706
+radius = 2.0
+height = 12.0
 
 [node name="Sword" type="Area2D"]
 collision_layer = 0
@@ -16,10 +16,10 @@ script = ExtResource("1_hufl4")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(11, -11)
-texture = ExtResource("1_wiso4")
+texture = ExtResource("2_3snwx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(11, -11)
+position = Vector2(12, -12)
 rotation = 0.785398
 shape = SubResource("CapsuleShape2D_q8fq0")
 

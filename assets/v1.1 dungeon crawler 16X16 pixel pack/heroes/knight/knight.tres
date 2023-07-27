@@ -1,0 +1,63 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://dsf7hxws2srsw"]
+
+[ext_resource type="Texture2D" uid="uid://5ycbti7ekjse" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_anim_f0.png" id="1_4uq6t"]
+[ext_resource type="Texture2D" uid="uid://cof32vcpsqimm" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_anim_f1.png" id="2_65t6l"]
+[ext_resource type="Texture2D" uid="uid://04kgeoxpfpny" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_anim_f2.png" id="3_2lfv6"]
+[ext_resource type="Texture2D" uid="uid://c683aitfi20ka" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_anim_f3.png" id="4_jxx4y"]
+[ext_resource type="Texture2D" uid="uid://c1qdc2an1hkgr" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_anim_f4.png" id="5_7syca"]
+[ext_resource type="Texture2D" uid="uid://bkme0pe6ku6bv" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_idle_anim_f5.png" id="6_coesh"]
+[ext_resource type="Texture2D" uid="uid://c2e5kl7kooxej" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_anim_f0.png" id="7_xfc8s"]
+[ext_resource type="Texture2D" uid="uid://ctoptaqlcehfg" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_anim_f1.png" id="8_pohev"]
+[ext_resource type="Texture2D" uid="uid://doeowhiwjheyy" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_anim_f2.png" id="9_umoix"]
+[ext_resource type="Texture2D" uid="uid://dcqjdnivh6g6i" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_anim_f3.png" id="10_i0v0y"]
+[ext_resource type="Texture2D" uid="uid://cxcf6kxleyq20" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_anim_f4.png" id="11_1wenq"]
+[ext_resource type="Texture2D" uid="uid://ubwyhoe106pg" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight_run_anim_f5.png" id="12_7lfae"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4uq6t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_65t6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2lfv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_jxx4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_7syca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_coesh")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_xfc8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_pohev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_umoix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_i0v0y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_1wenq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7lfae")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]

@@ -1,7 +1,7 @@
 extends CharacterBody2D 
 class_name Enemy
 
-enum State {IDLE, HITSTUN, DYING}
+enum State {ACTIVE, HITSTUN, DYING}
 
 @export var max_hp: float = 3.0
 @export var low_hp_threshold:float = 1.0
@@ -13,7 +13,7 @@ enum State {IDLE, HITSTUN, DYING}
 @onready var current_hp = max_hp
 @onready var command_velocity = Vector2.ZERO
 @onready var response_velocity = Vector2.ZERO
-@onready var state: State = State.IDLE
+@onready var state: State = State.ACTIVE
 @onready var target:Hero = null
 @onready var nearby_friendlies: Dictionary = Dictionary()
 func friends() -> Array:
@@ -50,7 +50,7 @@ func target_in_range(distance: float = max_target_range) -> bool:
 func establish_target(body):
 	if target == null and not check_far_from_spawn():
 		target = body
-		$AnimationPlayer.play("exclaim")
+		$ExclamationAnimationPlayer.play("exclaim")
 		$AlertedSFX.play()
 		for friend in friends():
 			if friend.target == null:
@@ -88,17 +88,22 @@ func recover():
 	else:
 		return BeehaveTree.SUCCESS
 		
-func take_hit(damage: int, knockback: Vector2):
-	if state != State.HITSTUN:
+func take_hit(damage: int, knockback: Vector2) -> bool:
+	if state == State.ACTIVE:
 		current_hp -= damage
 		if current_hp <= 0:
-			# TODO: dying animation
+			command_velocity = Vector2.ZERO
+			response_velocity += knockback * knockback_factor
+			$AnimationPlayer.play("death")
+			$AnimatedSprite2D.stop()
 			state = State.DYING
-			queue_free()
 		else:
 			state = State.HITSTUN
 			$AnimationPlayer.play("damaged")
 			response_velocity += knockback * knockback_factor
+		return true
+	else:
+		return false
 
 func _process(_delta):
 	if command_velocity.x < 0:
@@ -119,4 +124,4 @@ func _physics_process(delta):
 		response_velocity *= velocity_decay
 		if response_velocity.length() < 10:
 			response_velocity = Vector2.ZERO
-			state = State.IDLE
+			state = State.ACTIVE

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bd4xkstaqln3m"]
+[gd_scene load_steps=34 format=3 uid="uid://bd4xkstaqln3m"]
 
 [ext_resource type="Script" path="res://scripts/bat.gd" id="1_jso4m"]
 [ext_resource type="SpriteFrames" uid="uid://cdbwbvrp3o5sf" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/flier.tres" id="1_u5jt1"]
@@ -25,6 +25,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_j0ffp"]
 radius = 4.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_nocbg"]
+font_size = 12
+
 [sub_resource type="GDScript" id="GDScript_46cpb"]
 script/source = "extends Area2D
 
@@ -43,19 +46,19 @@ func _on_body_exited(_body):
 [sub_resource type="CircleShape2D" id="CircleShape2D_khpvr"]
 radius = 100.0
 
-[sub_resource type="Animation" id="Animation_j6286"]
-resource_name = "exclaim"
+[sub_resource type="Animation" id="Animation_impy5"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Exclamation:modulate")
+tracks/0/path = NodePath("AnimatedSprite2D:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_f1u6w"]
@@ -73,6 +76,35 @@ tracks/0/keys = {
 "values": [Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_ta1bl"]
+resource_name = "die"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_w7apj"]
 resource_name = "healing"
 tracks/0/type = "value"
@@ -88,39 +120,48 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(0.447059, 1, 0.458824, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_impy5"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gjfkr"]
+_data = {
+"RESET": SubResource("Animation_impy5"),
+"damaged": SubResource("Animation_f1u6w"),
+"death": SubResource("Animation_ta1bl"),
+"healing": SubResource("Animation_w7apj")
+}
+
+[sub_resource type="Animation" id="Animation_2udvn"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:modulate")
+tracks/0/path = NodePath("../Exclamation:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Exclamation:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
 "values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_gjfkr"]
+[sub_resource type="Animation" id="Animation_03wtm"]
+resource_name = "exclaim"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Exclamation:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 1), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3x3tg"]
 _data = {
-"RESET": SubResource("Animation_impy5"),
-"damaged": SubResource("Animation_f1u6w"),
-"exclaim": SubResource("Animation_j6286"),
-"healing": SubResource("Animation_w7apj")
+"RESET": SubResource("Animation_2udvn"),
+"exclaim": SubResource("Animation_03wtm")
 }
 
 [node name="Spawn" type="Node2D"]
@@ -138,17 +179,16 @@ shape = SubResource("CircleShape2D_j0ffp")
 sprite_frames = ExtResource("1_u5jt1")
 animation = &"fly"
 autoplay = "fly"
-frame_progress = 0.00307654
+frame_progress = 0.448274
 
-[node name="Exclamation" type="RichTextLabel" parent="Bat"]
+[node name="Exclamation" type="Label" parent="Bat"]
 modulate = Color(1, 1, 1, 0)
-offset_left = -1.0
-offset_top = -18.0
-offset_right = 6.0
-offset_bottom = 5.0
-theme_override_colors/default_color = Color(1, 0, 0, 1)
-theme_override_font_sizes/normal_font_size = 10
+offset_left = -2.0
+offset_top = -19.0
+offset_right = 7.0
+offset_bottom = 7.0
 text = "!"
+label_settings = SubResource("LabelSettings_nocbg")
 
 [node name="AlertedSFX" type="AudioStreamPlayer2D" parent="Bat"]
 stream = ExtResource("3_rl07a")
@@ -212,7 +252,7 @@ script = ExtResource("5_5o2i8")
 [node name="OrbitTimeout" type="Node" parent="Bat/BatEnemyAI/SelectorReactiveComposite/High HP/Attack"]
 script = ExtResource("12_j80wp")
 success_on_timeout = true
-wait_time = 8.2739
+wait_time = 5.882
 
 [node name="Orbit" parent="Bat/BatEnemyAI/SelectorReactiveComposite/High HP/Attack/OrbitTimeout" instance=ExtResource("11_vni1q")]
 
@@ -227,6 +267,12 @@ wait_time = 4.0
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Bat"]
 libraries = {
 "": SubResource("AnimationLibrary_gjfkr")
+}
+
+[node name="ExclamationAnimationPlayer" type="AnimationPlayer" parent="Bat"]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_3x3tg")
 }
 
 [connection signal="body_entered" from="Bat/Detection" to="Bat/Detection" method="_on_body_entered"]

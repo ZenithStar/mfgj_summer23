@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcac28hm6rsxr"]
+
+[ext_resource type="Texture2D" uid="uid://o00r865pdtu6" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/enemies/goblin/goblin_knife.png" id="1_6ca4n"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sk343"]
+radius = 0.866025
+height = 9.9282
+
+[node name="Knife" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4, -5)
+texture = ExtResource("1_6ca4n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -5)
+rotation = 0.698132
+shape = SubResource("CapsuleShape2D_sk343")

@@ -1,26 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://b2amurd3kdhel"]
 
 [ext_resource type="Script" path="res://scripts/hero.gd" id="1_35nd0"]
-[ext_resource type="SpriteFrames" uid="uid://bmhk7w7rco5ka" path="res://assets/Meta data assets files/Visuals/CHARACTERS/player/hero_sprite_frames.tres" id="1_saips"]
+[ext_resource type="SpriteFrames" uid="uid://dsf7hxws2srsw" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight.tres" id="2_kdfkg"]
 [ext_resource type="AudioStream" uid="uid://dpoghggshbuoe" path="res://assets/Meta data assets files/sounds/fx/thorn.wav" id="3_tfj4s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vk1ef"]
 radius = 6.0
-
-[sub_resource type="Animation" id="Animation_knhbx"]
-resource_name = "damaged"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5, 0.7, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
-}
 
 [sub_resource type="Animation" id="Animation_2nwa8"]
 length = 0.001
@@ -35,6 +20,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_knhbx"]
+resource_name = "damaged"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h2qsc"]
@@ -54,11 +54,10 @@ script = ExtResource("1_35nd0")
 shape = SubResource("CircleShape2D_vk1ef")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -2)
-sprite_frames = ExtResource("1_saips")
-animation = &"walk_down"
-autoplay = "idle_down"
-frame_progress = 0.391502
+sprite_frames = ExtResource("2_kdfkg")
+animation = &"run"
+autoplay = "idle"
+frame_progress = 0.183468
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
