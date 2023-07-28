@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbnrtwcsup8ht"]
+
+[ext_resource type="SpriteFrames" uid="uid://d0jntlxb2rtt4" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/slash_frames.tres" id="1_1a7t5"]
+[ext_resource type="Script" path="res://scripts/sword_beam.gd" id="1_hy4f7"]
+
+[node name="Sword Beam" type="Area2D"]
+collision_layer = 0
+collision_mask = 240
+script = ExtResource("1_hy4f7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(16, 0)
+sprite_frames = ExtResource("1_1a7t5")
+autoplay = "default"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(16, 0)
+polygon = PackedVector2Array(-2, -8, 3, -3, 3, 3, -2, 8, -8, 8, -1, 0, -8, -8)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

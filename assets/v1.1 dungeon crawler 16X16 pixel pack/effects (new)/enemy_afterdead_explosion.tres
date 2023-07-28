@@ -1,0 +1,37 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://chj825k5omvdo"]
+
+[ext_resource type="Texture2D" uid="uid://qdnvqcly2j41" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_f0.png" id="1_15yx7"]
+[ext_resource type="Texture2D" uid="uid://dro3rul66c15t" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_f1.png" id="2_bp0qt"]
+[ext_resource type="Texture2D" uid="uid://dqgj55x6q4dlx" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_f2.png" id="3_strv1"]
+[ext_resource type="Texture2D" uid="uid://csxql3hu33f4w" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion_anim_f3.png" id="4_5dtmi"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"RESET",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_15yx7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_bp0qt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_strv1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5dtmi")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}]

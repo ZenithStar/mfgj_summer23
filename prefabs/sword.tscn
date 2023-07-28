@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dryedq7fcyqo7"]
+[gd_scene load_steps=4 format=3 uid="uid://dryedq7fcyqo7"]
 
 [ext_resource type="Script" path="res://scripts/sword_swing.gd" id="1_hufl4"]
 [ext_resource type="Texture2D" uid="uid://da72ksp76081g" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/weapon_sword_1.png" id="2_3snwx"]
-[ext_resource type="AudioStream" uid="uid://dpoghggshbuoe" path="res://assets/Meta data assets files/sounds/fx/thorn.wav" id="3_f6efm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q8fq0"]
 radius = 2.0
@@ -22,8 +21,5 @@ texture = ExtResource("2_3snwx")
 position = Vector2(12, -12)
 rotation = 0.785398
 shape = SubResource("CapsuleShape2D_q8fq0")
-
-[node name="HitSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_f6efm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

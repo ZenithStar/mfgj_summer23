@@ -5,3 +5,7 @@
 [node name="HUD" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_escde")
+
+[node name="FPS" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

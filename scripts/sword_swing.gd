@@ -1,7 +1,7 @@
 extends Area2D
 class_name SwordSwing
 
-@export var swing_duration = 0.3
+@export var lifespan = 0.3
 @export var swing_angle = 90.0
 @export var radius_offset = 6.0
 @export var damage: float = 1.0
@@ -11,12 +11,11 @@ class_name SwordSwing
 
 func _physics_process(delta):
 	elapsed += delta
-	if elapsed > swing_duration:
+	if elapsed > lifespan:
 		queue_free()
-	rotation_degrees += swing_angle * delta / swing_duration
+	rotation_degrees += swing_angle * delta / lifespan
 
 func _on_body_entered(body):
 	var angle = rotation + $CollisionShape2D.rotation
 	if body is Enemy:
-		if body.take_hit( damage , knockback * Vector2(sin(angle), -cos(angle))):
-			$HitSFX.play()
+		body.take_hit( damage , knockback * Vector2(sin(angle), -cos(angle)) , get_parent())

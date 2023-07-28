@@ -17,7 +17,8 @@ class_name Hero
 enum State {ACTIVE, IMMUNE}
 @onready var state: State = State.ACTIVE
 
-var sword_class : PackedScene = preload("res://prefabs/sword.tscn")
+const sword_class : PackedScene = preload("res://prefabs/sword.tscn")
+const sword_beam_class : PackedScene = preload("res://prefabs/sword_beam.tscn")
 
 @onready var last_direction: String = "_down"
 @onready var attacking:bool = false
@@ -25,6 +26,21 @@ var sword_class : PackedScene = preload("res://prefabs/sword.tscn")
 @onready var last_move_vector: Vector2 = Vector2(0.0,1.0)
 @onready var external_impulse: Vector2 = Vector2.ZERO
 @onready var current_hp = Globals.life
+@export var zoom_rate: float = pow(2.0, 1.0/10.0)
+func _input(event):
+	if event.is_action("zoom_in"):
+		$Camera2D.zoom = $Camera2D.zoom * zoom_rate
+	elif event.is_action("zoom_out"):
+		$Camera2D.zoom = $Camera2D.zoom / zoom_rate
+
+func attack(direction):
+	if sword == null:
+		sword = sword_class.instantiate()
+		sword.rotation = atan2(direction.y, direction.x)
+		add_child(sword)
+		var sword_beam = sword_beam_class.instantiate()
+		sword_beam.set_direction(direction)
+		add_child(sword_beam)
 
 func _physics_process(_delta):
 	var input_direction = Input.get_vector(move_left, move_right, move_up, move_down)
@@ -40,21 +56,12 @@ func _physics_process(_delta):
 	else:
 		$AnimatedSprite2D.play("idle")
 	if action_direction.length() > 0:
-		if sword == null:
-			sword = sword_class.instantiate()
-			sword.rotation = atan2(action_direction.y, action_direction.x)
-			add_child(sword)
+		attack(action_direction)
 	if Input.is_action_pressed(action):
-		if sword == null:
-			sword = sword_class.instantiate()
-			sword.rotation = atan2(last_move_vector.y, last_move_vector.x)
-			add_child(sword)
+		attack(last_move_vector)
 	if Input.is_action_pressed(action_mouse):
-		if sword == null:
-			sword = sword_class.instantiate()
-			var offset = get_global_mouse_position() - global_position
-			sword.rotation = atan2(offset.y, offset.x)
-			add_child(sword)
+		var offset = get_global_mouse_position() - global_position
+		attack(offset)
 	velocity = input_direction * speed + external_impulse
 	move_and_slide()
 	if state == State.IMMUNE:

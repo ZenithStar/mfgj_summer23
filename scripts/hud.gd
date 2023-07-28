@@ -11,4 +11,5 @@ func _ready():
 		icon.position = health_origin + health_icon_increment * i
 		add_child(icon)
 
-
+func _process(_delta):
+	$FPS.text = "FPS: " + str(Engine.get_frames_per_second())

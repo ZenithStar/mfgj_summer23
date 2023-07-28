@@ -62,8 +62,9 @@ frame_progress = 0.183468
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
+position_smoothing_speed = 4.0
 
-[node name="HitSFX" type="AudioStreamPlayer" parent="."]
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_tfj4s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

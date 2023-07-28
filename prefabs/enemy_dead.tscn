@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://wpjhrdphohf2"]
+
+[ext_resource type="SpriteFrames" uid="uid://chj825k5omvdo" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/effects (new)/enemy_afterdead_explosion.tres" id="1_gxj1h"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+sprite_frames = ExtResource("1_gxj1h")
+animation = &"death"
+autoplay = "RESET"

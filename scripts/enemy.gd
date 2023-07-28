@@ -80,27 +80,34 @@ func disengage():
 		
 @export var recovery_rate:float = 0.5
 func recover():
-	if current_hp < max_hp:
-		current_hp = clamp(current_hp + recovery_rate * get_physics_process_delta_time(), 0.0, max_hp)
-		command_velocity = Vector2.ZERO
-		$AnimationPlayer.play("healing")
-		return BeehaveTree.RUNNING
+	if state == State.ACTIVE:
+		if current_hp < max_hp:
+			current_hp = clamp(current_hp + recovery_rate * get_physics_process_delta_time(), 0.0, max_hp)
+			command_velocity = Vector2.ZERO
+			$AnimationPlayer.play("healing")
+			return BeehaveTree.RUNNING
+		else:
+			return BeehaveTree.SUCCESS
 	else:
-		return BeehaveTree.SUCCESS
+		return BeehaveTree.FAILURE
 		
-func take_hit(damage: int, knockback: Vector2) -> bool:
+func take_hit(damage: float, knockback: Vector2, source: Hero) -> bool:
 	if state == State.ACTIVE:
 		current_hp -= damage
 		if current_hp <= 0:
 			command_velocity = Vector2.ZERO
 			response_velocity += knockback * knockback_factor
-			$AnimationPlayer.play("death")
+			$DeathAnimationPlayer.play("death")
+			$DeathAnimation.play("death")
 			$AnimatedSprite2D.stop()
 			state = State.DYING
 		else:
 			state = State.HITSTUN
 			$AnimationPlayer.play("damaged")
 			response_velocity += knockback * knockback_factor
+			if target == null:
+				establish_target(source)
+		$HitSFX.play()
 		return true
 	else:
 		return false
@@ -124,4 +131,5 @@ func _physics_process(delta):
 		response_velocity *= velocity_decay
 		if response_velocity.length() < 10:
 			response_velocity = Vector2.ZERO
-			state = State.ACTIVE
+			if state == State.HITSTUN:
+				state = State.ACTIVE

@@ -13,6 +13,7 @@ func _ready():
 @onready var patrol_angle_i: float = randf_range(-1000.0, 1000.0)
 @onready var patrol_velocity_i: float = randf_range(-1000.0, 1000.0)
 
+
 func patrol():
 	patrol_angle += noise.get_noise_1d(patrol_angle_i) * patrol_angular_velocity
 	var lin_vel = noise.get_noise_1d(patrol_velocity_i) * decayed_velocity()
@@ -39,14 +40,14 @@ func preorbit():
 	orbit_distance_i = randf_range(-1000.0, 1000.0) 
 	return BeehaveTree.SUCCESS
 func orbit(charge:bool = false):
-	var offset = target.global_position - global_position
 	if current_collision != null:
 		if current_collision.get_collider() is Hero:
 			return BeehaveTree.SUCCESS
+	if target == null :
+		return BeehaveTree.FAILURE
+	var offset = target.global_position - global_position
 	if max_chase_distance < offset.length():
 		target = null
-		return BeehaveTree.FAILURE
-	elif target == null :
 		return BeehaveTree.FAILURE
 	else:
 		if charge:
