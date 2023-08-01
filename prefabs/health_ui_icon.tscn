@@ -2,5 +2,19 @@
 
 [ext_resource type="Texture2D" uid="uid://c5knph7xv4ceu" path="res://assets/Meta data assets files/Visuals/FX/feedback/shot-4.png" id="1_ffcer"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[node name="Health Icon" type="TextureRect"]
+offset_right = 16.0
+offset_bottom = 16.0
 texture = ExtResource("1_ffcer")
+stretch_mode = 4
+metadata/_aseprite_wizard_config_ = {
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": ""
+}

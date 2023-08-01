@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1umiewpn2da2"]
+
+[ext_resource type="PackedScene" uid="uid://b2amurd3kdhel" path="res://prefabs/hero.tscn" id="1_jfk27"]
+[ext_resource type="PackedScene" uid="uid://dl56gjn01n5xb" path="res://levels/test_level.tscn" id="2_ce357"]
+[ext_resource type="PackedScene" uid="uid://b2udr2jakhwsl" path="res://prefabs/ai/overlay_ui.tscn" id="3_lu2sa"]
+
+[node name="main" type="Node2D"]
+
+[node name="Test Level" parent="." instance=ExtResource("2_ce357")]
+
+[node name="Hero" parent="." instance=ExtResource("1_jfk27")]
+position = Vector2(-750, 380)
+motion_mode = 0
+
+[node name="HUD" parent="." instance=ExtResource("3_lu2sa")]

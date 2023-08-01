@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dax6568enoxdk"]
+
+[ext_resource type="TileSet" uid="uid://3xa6maqlkqba" path="res://assets/Texture/Cainos.tres" id="1_twasg"]
+
+[node name="Cave Level" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = ExtResource("1_twasg")
+format = 2

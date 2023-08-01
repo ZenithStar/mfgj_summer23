@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp21xm8pta7ye"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dlq84"]
+size = Vector2(100, 200)
+
+[sub_resource type="GDScript" id="GDScript_hnnh0"]
+script/source = "extends CharacterBody2D
+
+@onready var contacts : PackedVector2Array = PackedVector2Array()
+@onready var direction : Vector2 = Vector2(0.0, -1.0)
+func _draw():
+	draw_rect($CollisionShape2D.shape.get_rect(), Color(Color.SEA_GREEN, 0.5))
+	if contacts.size() > 0:
+		print ((contacts[1] - contacts[0]).dot(direction))
+	for point in contacts:
+		draw_circle(to_local(point), 2, Color.RED)
+
+func _physics_process(delta):
+	if Input.is_action_pressed(\"action_mouse\"):
+		global_position = get_global_mouse_position()
+	var other_shape: CollisionShape2D = $\"/root/Node2D/Area2D/CollisionShape2D\"
+	contacts = $CollisionShape2D.shape.collide_and_get_contacts($CollisionShape2D.global_transform, other_shape.shape, other_shape.global_transform)
+	queue_redraw()
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trsci"]
+radius = 25.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(648, 331)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_dlq84")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(636, 567)
+rotation = 0.855211
+script = SubResource("GDScript_hnnh0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CircleShape2D_trsci")

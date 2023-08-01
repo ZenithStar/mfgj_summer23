@@ -1,0 +1,252 @@
+[gd_resource type="SpriteFrames" load_steps=49 format=3 uid="uid://dolp3aemi8m2k"]
+
+[ext_resource type="Texture2D" uid="uid://ddk8owq5m4qhk" path="res://assets/Bringer-Of-Death/Individual Sprite/Idle/Bringer-of-Death_Idle_1.png" id="1_utwyw"]
+[ext_resource type="Texture2D" uid="uid://bm2buvbm58y8w" path="res://assets/Bringer-Of-Death/Individual Sprite/Attack/Bringer-of-Death_Attack_1.png" id="2_vsv58"]
+[ext_resource type="Texture2D" uid="uid://dpnjm0rrw2jnv" path="res://assets/Bringer-Of-Death/Individual Sprite/Attack/Bringer-of-Death_Attack_2.png" id="3_rjc13"]
+[ext_resource type="Texture2D" uid="uid://f6etmdben02c" path="res://assets/Bringer-Of-Death/Individual Sprite/Attack/Bringer-of-Death_Attack_3.png" id="4_s7wk8"]
+[ext_resource type="Texture2D" uid="uid://blco53746shfv" path="res://assets/Bringer-Of-Death/Individual Sprite/Attack/Bringer-of-Death_Attack_4.png" id="5_gge6w"]
+[ext_resource type="Texture2D" uid="uid://3mbxm1u343cj" path="res://assets/Bringer-Of-Death/Individual Sprite/Attack/Bringer-of-Death_Attack_5.png" id="6_h1b5h"]
+[ext_resource type="Texture2D" uid="uid://brb5ia8hg2kvg" path="res://assets/Bringer-Of-Death/Individual Sprite/Attack/Bringer-of-Death_Attack_6.png" id="7_qlo4v"]
+[ext_resource type="Texture2D" uid="uid://btl1xeov5gjll" path="res://assets/Bringer-Of-Death/Individual Sprite/Attack/Bringer-of-Death_Attack_7.png" id="8_huo6e"]
+[ext_resource type="Texture2D" uid="uid://le6y136plemi" path="res://assets/Bringer-Of-Death/Individual Sprite/Attack/Bringer-of-Death_Attack_8.png" id="9_n0gfp"]
+[ext_resource type="Texture2D" uid="uid://bxwt8a5toxro4" path="res://assets/Bringer-Of-Death/Individual Sprite/Attack/Bringer-of-Death_Attack_9.png" id="10_6xdr7"]
+[ext_resource type="Texture2D" uid="uid://cs4skj3gaw3qr" path="res://assets/Bringer-Of-Death/Individual Sprite/Attack/Bringer-of-Death_Attack_10.png" id="11_5rhg4"]
+[ext_resource type="Texture2D" uid="uid://cwq82h655f4t" path="res://assets/Bringer-Of-Death/Individual Sprite/Cast/Bringer-of-Death_Cast_1.png" id="12_t20j1"]
+[ext_resource type="Texture2D" uid="uid://13ry2350bf7q" path="res://assets/Bringer-Of-Death/Individual Sprite/Cast/Bringer-of-Death_Cast_2.png" id="13_0ifos"]
+[ext_resource type="Texture2D" uid="uid://ciecvpjomxnua" path="res://assets/Bringer-Of-Death/Individual Sprite/Cast/Bringer-of-Death_Cast_3.png" id="14_qcw6k"]
+[ext_resource type="Texture2D" uid="uid://dner0nlkkp003" path="res://assets/Bringer-Of-Death/Individual Sprite/Cast/Bringer-of-Death_Cast_4.png" id="15_jvuti"]
+[ext_resource type="Texture2D" uid="uid://bo32g5kxdiw2t" path="res://assets/Bringer-Of-Death/Individual Sprite/Cast/Bringer-of-Death_Cast_5.png" id="16_utqhf"]
+[ext_resource type="Texture2D" uid="uid://tqabby5ufayi" path="res://assets/Bringer-Of-Death/Individual Sprite/Cast/Bringer-of-Death_Cast_6.png" id="17_wfv5u"]
+[ext_resource type="Texture2D" uid="uid://nj3by40qv3cd" path="res://assets/Bringer-Of-Death/Individual Sprite/Cast/Bringer-of-Death_Cast_7.png" id="18_x5nvg"]
+[ext_resource type="Texture2D" uid="uid://dxfx5keney47n" path="res://assets/Bringer-Of-Death/Individual Sprite/Cast/Bringer-of-Death_Cast_8.png" id="19_tr5j3"]
+[ext_resource type="Texture2D" uid="uid://bigk1i343behy" path="res://assets/Bringer-Of-Death/Individual Sprite/Cast/Bringer-of-Death_Cast_9.png" id="20_y6fug"]
+[ext_resource type="Texture2D" uid="uid://bnmd8vcsp3aar" path="res://assets/Bringer-Of-Death/Individual Sprite/Death/Bringer-of-Death_Death_1.png" id="21_obc8l"]
+[ext_resource type="Texture2D" uid="uid://brw2gjd4onx3" path="res://assets/Bringer-Of-Death/Individual Sprite/Death/Bringer-of-Death_Death_2.png" id="22_syjoi"]
+[ext_resource type="Texture2D" uid="uid://3cbswm1rkga0" path="res://assets/Bringer-Of-Death/Individual Sprite/Death/Bringer-of-Death_Death_3.png" id="23_8r78f"]
+[ext_resource type="Texture2D" uid="uid://cqohxf56n1kgl" path="res://assets/Bringer-Of-Death/Individual Sprite/Death/Bringer-of-Death_Death_4.png" id="24_bvtjn"]
+[ext_resource type="Texture2D" uid="uid://dpy121k834trh" path="res://assets/Bringer-Of-Death/Individual Sprite/Death/Bringer-of-Death_Death_5.png" id="25_ejpn1"]
+[ext_resource type="Texture2D" uid="uid://c5g1wev4e2efv" path="res://assets/Bringer-Of-Death/Individual Sprite/Death/Bringer-of-Death_Death_6.png" id="26_kesbx"]
+[ext_resource type="Texture2D" uid="uid://wwy0c73achbn" path="res://assets/Bringer-Of-Death/Individual Sprite/Death/Bringer-of-Death_Death_7.png" id="27_bi2re"]
+[ext_resource type="Texture2D" uid="uid://d33wih7l8lyjr" path="res://assets/Bringer-Of-Death/Individual Sprite/Death/Bringer-of-Death_Death_8.png" id="28_7kpqk"]
+[ext_resource type="Texture2D" uid="uid://dxxmehwmm6nnd" path="res://assets/Bringer-Of-Death/Individual Sprite/Death/Bringer-of-Death_Death_9.png" id="29_xf6dy"]
+[ext_resource type="Texture2D" uid="uid://tjvew2g0qu7h" path="res://assets/Bringer-Of-Death/Individual Sprite/Death/Bringer-of-Death_Death_10.png" id="30_skc5k"]
+[ext_resource type="Texture2D" uid="uid://xvwltb2ire30" path="res://assets/Bringer-Of-Death/Individual Sprite/Hurt/Bringer-of-Death_Hurt_1.png" id="31_058pi"]
+[ext_resource type="Texture2D" uid="uid://g77kl3rp8u8d" path="res://assets/Bringer-Of-Death/Individual Sprite/Hurt/Bringer-of-Death_Hurt_2.png" id="32_fv204"]
+[ext_resource type="Texture2D" uid="uid://biasdpty65n0" path="res://assets/Bringer-Of-Death/Individual Sprite/Hurt/Bringer-of-Death_Hurt_3.png" id="33_kbruv"]
+[ext_resource type="Texture2D" uid="uid://cl7gwawxu2q8r" path="res://assets/Bringer-Of-Death/Individual Sprite/Idle/Bringer-of-Death_Idle_2.png" id="34_8o1ii"]
+[ext_resource type="Texture2D" uid="uid://cbyocmivnmxh5" path="res://assets/Bringer-Of-Death/Individual Sprite/Idle/Bringer-of-Death_Idle_3.png" id="35_na4fk"]
+[ext_resource type="Texture2D" uid="uid://cstosdlvpqhuy" path="res://assets/Bringer-Of-Death/Individual Sprite/Idle/Bringer-of-Death_Idle_4.png" id="36_yf7v4"]
+[ext_resource type="Texture2D" uid="uid://bmftuqwbjy4e0" path="res://assets/Bringer-Of-Death/Individual Sprite/Idle/Bringer-of-Death_Idle_5.png" id="37_3byfm"]
+[ext_resource type="Texture2D" uid="uid://brddidgnrqki4" path="res://assets/Bringer-Of-Death/Individual Sprite/Idle/Bringer-of-Death_Idle_6.png" id="38_oayc6"]
+[ext_resource type="Texture2D" uid="uid://bah0ooyn8n5gb" path="res://assets/Bringer-Of-Death/Individual Sprite/Idle/Bringer-of-Death_Idle_7.png" id="39_5jb2x"]
+[ext_resource type="Texture2D" uid="uid://eknwq46asltd" path="res://assets/Bringer-Of-Death/Individual Sprite/Idle/Bringer-of-Death_Idle_8.png" id="40_fau17"]
+[ext_resource type="Texture2D" uid="uid://ci5mtioaiqk4v" path="res://assets/Bringer-Of-Death/Individual Sprite/Walk/Bringer-of-Death_Walk_1.png" id="41_d4ijm"]
+[ext_resource type="Texture2D" uid="uid://cgblfoonw86f3" path="res://assets/Bringer-Of-Death/Individual Sprite/Walk/Bringer-of-Death_Walk_2.png" id="42_31ms2"]
+[ext_resource type="Texture2D" uid="uid://dxcl8ye57ptxk" path="res://assets/Bringer-Of-Death/Individual Sprite/Walk/Bringer-of-Death_Walk_3.png" id="43_i0wfo"]
+[ext_resource type="Texture2D" uid="uid://bvvboo85r8v42" path="res://assets/Bringer-Of-Death/Individual Sprite/Walk/Bringer-of-Death_Walk_4.png" id="44_i3xjb"]
+[ext_resource type="Texture2D" uid="uid://ciwn802beniqj" path="res://assets/Bringer-Of-Death/Individual Sprite/Walk/Bringer-of-Death_Walk_5.png" id="45_x20ef"]
+[ext_resource type="Texture2D" uid="uid://ctt4jxa4o0ara" path="res://assets/Bringer-Of-Death/Individual Sprite/Walk/Bringer-of-Death_Walk_6.png" id="46_aa8le"]
+[ext_resource type="Texture2D" uid="uid://bufbigrt6n4x7" path="res://assets/Bringer-Of-Death/Individual Sprite/Walk/Bringer-of-Death_Walk_7.png" id="47_sffwm"]
+[ext_resource type="Texture2D" uid="uid://usnwumilamq5" path="res://assets/Bringer-Of-Death/Individual Sprite/Walk/Bringer-of-Death_Walk_8.png" id="48_oqemx"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_utwyw")
+}],
+"loop": true,
+"name": &"RESET",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_vsv58")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rjc13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_s7wk8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gge6w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_h1b5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_qlo4v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_huo6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_n0gfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_6xdr7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_5rhg4")
+}],
+"loop": false,
+"name": &"attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_t20j1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0ifos")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qcw6k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_jvuti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_utqhf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_wfv5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_x5nvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_tr5j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_y6fug")
+}],
+"loop": false,
+"name": &"cast",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_wfv5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_x5nvg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_tr5j3")
+}],
+"loop": true,
+"name": &"channel",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_obc8l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_syjoi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_8r78f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_bvtjn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_ejpn1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_kesbx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_bi2re")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_7kpqk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_xf6dy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_skc5k")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("31_058pi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_fv204")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_kbruv")
+}],
+"loop": false,
+"name": &"hurt",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_utwyw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_8o1ii")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_na4fk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_yf7v4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_3byfm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_oayc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_5jb2x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_fau17")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("41_d4ijm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_31ms2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_i0wfo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_i3xjb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_x20ef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_aa8le")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_sffwm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_oqemx")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]

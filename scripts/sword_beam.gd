@@ -20,6 +20,5 @@ func _physics_process(delta):
 	position += velocity * delta
 	
 func _on_body_entered(body):
-	var angle = rotation
 	if body is Enemy:
 		body.take_hit( damage , velocity.normalized() * knockback , get_parent())

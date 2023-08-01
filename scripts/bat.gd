@@ -1,10 +1,6 @@
 extends Enemy
 class_name Bat
 
-@onready var noise: FastNoiseLite = FastNoiseLite.new()
-func _ready():
-	noise.noise_type = FastNoiseLite.NoiseType.TYPE_SIMPLEX_SMOOTH
-	noise.seed = randi()
 
 @export var wander_rate:float = 0.1
 @export var patrol_radius: float = 100
@@ -12,7 +8,6 @@ func _ready():
 @onready var patrol_angle: float = randf_range(-PI, PI)
 @onready var patrol_angle_i: float = randf_range(-1000.0, 1000.0)
 @onready var patrol_velocity_i: float = randf_range(-1000.0, 1000.0)
-
 
 func patrol():
 	patrol_angle += noise.get_noise_1d(patrol_angle_i) * patrol_angular_velocity

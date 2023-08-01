@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bd4xkstaqln3m"]
+[gd_scene load_steps=40 format=3 uid="uid://bd4xkstaqln3m"]
 
 [ext_resource type="Script" path="res://scripts/bat.gd" id="1_jso4m"]
 [ext_resource type="SpriteFrames" uid="uid://cdbwbvrp3o5sf" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/flier.tres" id="1_u5jt1"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="5_5o2i8"]
 [ext_resource type="AudioStream" uid="uid://dpoghggshbuoe" path="res://assets/Meta data assets files/sounds/fx/thorn.wav" id="5_ikygq"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence_reactive.gd" id="5_p0i0k"]
+[ext_resource type="PackedScene" uid="uid://ni6n1820gis5" path="res://prefabs/health_nameplate.tscn" id="6_km86y"]
 [ext_resource type="PackedScene" uid="uid://cmmnyywipci2m" path="res://prefabs/ai/low_hp.tscn" id="6_sokal"]
 [ext_resource type="PackedScene" uid="uid://dxqiqx50rb1bs" path="res://prefabs/ai/flee.tscn" id="8_0tpbl"]
 [ext_resource type="PackedScene" uid="uid://4hanm3wnt5gu" path="res://prefabs/ai/far_from_spawn.tscn" id="9_3xpqp"]
@@ -223,17 +224,31 @@ collision_layer = 32
 collision_mask = 2
 safe_margin = 1.0
 script = ExtResource("1_jso4m")
+wander_rate = null
+patrol_radius = null
+patrol_angular_velocity = null
+orbit_distance_velocity = null
+max_hp = null
+low_hp_threshold = null
+max_linear_velocity = null
+min_linear_velocity = null
+velocity_decay = null
+knockback_factor = null
+alert_pack = null
+max_chase_distance = null
+max_target_range = null
+recovery_rate = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bat"]
 shape = SubResource("CircleShape2D_j0ffp")
+
+[node name="DeathAnimation" parent="Bat" instance=ExtResource("3_qb46c")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Bat"]
 sprite_frames = ExtResource("1_u5jt1")
 animation = &"fly"
 autoplay = "fly"
 frame_progress = 0.448274
-
-[node name="DeathAnimation" parent="Bat" instance=ExtResource("3_qb46c")]
 
 [node name="Exclamation" type="Label" parent="Bat"]
 modulate = Color(1, 1, 1, 0)
@@ -250,6 +265,12 @@ volume_db = -20.0
 
 [node name="HitSFX" type="AudioStreamPlayer2D" parent="Bat"]
 stream = ExtResource("5_ikygq")
+
+[node name="HealthNameplate" parent="Bat" instance=ExtResource("6_km86y")]
+offset_left = -6.0
+offset_top = -7.0
+offset_right = 6.0
+offset_bottom = -6.0
 
 [node name="Detection" type="Area2D" parent="Bat"]
 collision_layer = 0
@@ -309,7 +330,7 @@ script = ExtResource("5_5o2i8")
 [node name="OrbitTimeout" type="Node" parent="Bat/BatEnemyAI/SelectorReactiveComposite/High HP/Attack"]
 script = ExtResource("12_j80wp")
 success_on_timeout = true
-wait_time = 6.22142
+wait_time = 6.45669
 
 [node name="Orbit" parent="Bat/BatEnemyAI/SelectorReactiveComposite/High HP/Attack/OrbitTimeout" instance=ExtResource("11_vni1q")]
 

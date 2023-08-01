@@ -7,14 +7,21 @@ enum State {ACTIVE, HITSTUN, DYING}
 @export var low_hp_threshold:float = 1.0
 @export var max_linear_velocity: float = 80
 @export var min_linear_velocity : float = 40
-@export var velocity_decay: float = 0.8
+@export var velocity_decay: float = 0.9
 @export var knockback_factor: float = 3.0
 @export var alert_pack: bool = true
+@export var hitstun_duration: float = 0.1
+@export var touch_damage: bool = true
 @onready var current_hp = max_hp
 @onready var command_velocity = Vector2.ZERO
 @onready var response_velocity = Vector2.ZERO
 @onready var state: State = State.ACTIVE
 @onready var target:Hero = null
+@onready var noise: FastNoiseLite = FastNoiseLite.new()
+func _ready():
+	noise.noise_type = FastNoiseLite.NoiseType.TYPE_SIMPLEX_SMOOTH
+	noise.seed = randi()
+	
 @onready var nearby_friendlies: Dictionary = Dictionary()
 func friends() -> Array:
 	var friends_list = nearby_friendlies.keys()
@@ -50,11 +57,16 @@ func target_in_range(distance: float = max_target_range) -> bool:
 func establish_target(body):
 	if target == null and not check_far_from_spawn():
 		target = body
-		$ExclamationAnimationPlayer.play("exclaim")
-		$AlertedSFX.play()
-		for friend in friends():
-			if friend.target == null:
-				friend.establish_target(body)
+		var exclaim_player = $ExclamationAnimationPlayer
+		if exclaim_player != null:
+			exclaim_player.play("exclaim")
+		var alert_sfx = $AlertedSFX
+		if alert_sfx != null:
+			alert_sfx.play()
+		if alert_pack:
+			for friend in friends():
+				if friend.target == null:
+					friend.establish_target(body)
 
 func flee():
 	if target != null:
@@ -102,8 +114,12 @@ func take_hit(damage: float, knockback: Vector2, source: Hero) -> bool:
 			$AnimatedSprite2D.stop()
 			state = State.DYING
 		else:
-			state = State.HITSTUN
-			$AnimationPlayer.play("damaged")
+			if hitstun_duration > 0.0:
+				state = State.HITSTUN
+				get_tree().create_timer(hitstun_duration).timeout.connect(func(): state = State.ACTIVE)
+			var ani_player = $AnimationPlayer
+			if ani_player != null && ani_player.has_animation("damaged"):
+				ani_player.play("damaged")
 			response_velocity += knockback * knockback_factor
 			if target == null:
 				establish_target(source)
@@ -122,7 +138,7 @@ func _process(_delta):
 func _physics_process(delta):
 	velocity = command_velocity + response_velocity
 	current_collision = move_and_collide(velocity * delta)
-	if current_collision != null:
+	if touch_damage && current_collision != null:
 		var collider = current_collision.get_collider()
 		if collider is Hero:
 			collider.take_hit(0.5, velocity)

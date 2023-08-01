@@ -1,0 +1,143 @@
+[gd_resource type="SpriteFrames" load_steps=33 format=3 uid="uid://dmd5u3sdfffpq"]
+
+[ext_resource type="Texture2D" uid="uid://bnudrqtu2tct5" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_5.png" id="1_35duk"]
+[ext_resource type="Texture2D" uid="uid://xwtv7irfsn0o" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_1.png" id="1_pmdix"]
+[ext_resource type="Texture2D" uid="uid://ek2hyynuwf73" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_2.png" id="2_0lje1"]
+[ext_resource type="Texture2D" uid="uid://pdknjsfgukou" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_6.png" id="2_fm3pe"]
+[ext_resource type="Texture2D" uid="uid://tqivi3x22wq2" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_7.png" id="3_c3ekg"]
+[ext_resource type="Texture2D" uid="uid://bbtyau2qgoje2" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_3.png" id="3_mqqqg"]
+[ext_resource type="Texture2D" uid="uid://bne8noi2rig17" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_4.png" id="4_45ao0"]
+[ext_resource type="Texture2D" uid="uid://m2dioel1hdpc" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_8.png" id="4_kxo03"]
+[ext_resource type="Texture2D" uid="uid://gjjg54vsy2f7" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_9.png" id="5_wtpfn"]
+[ext_resource type="Texture2D" uid="uid://btnnx7gqi7sts" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_10.png" id="6_0m8oy"]
+[ext_resource type="Texture2D" uid="uid://c44yl1l0wrcyq" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_11.png" id="7_k511t"]
+[ext_resource type="Texture2D" uid="uid://glgged8exlr" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_12.png" id="8_lprur"]
+[ext_resource type="Texture2D" uid="uid://blbfmiebnq56t" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_13.png" id="9_jd8r0"]
+[ext_resource type="Texture2D" uid="uid://dnjifoiuhx03x" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_1.png" id="10_gi1jt"]
+[ext_resource type="Texture2D" uid="uid://cdjemdmvl2044" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_2.png" id="11_bj7y2"]
+[ext_resource type="Texture2D" uid="uid://bp262i4ejjf7a" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_3.png" id="12_ybasw"]
+[ext_resource type="Texture2D" uid="uid://dnoaoi8vbfsyf" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_4.png" id="13_xr2j0"]
+[ext_resource type="Texture2D" uid="uid://bb4pjnartg1db" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_14.png" id="14_glmrp"]
+[ext_resource type="Texture2D" uid="uid://chm20t6nj4ijv" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_5.png" id="14_vovs3"]
+[ext_resource type="Texture2D" uid="uid://b6535e2ysrbrk" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_15.png" id="15_ha5yd"]
+[ext_resource type="Texture2D" uid="uid://bfw4e8wsvxwlp" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_6.png" id="15_ydcpa"]
+[ext_resource type="Texture2D" uid="uid://34i6n2cn20v4" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_7.png" id="16_2ofah"]
+[ext_resource type="Texture2D" uid="uid://cphqr2s3fbljs" path="res://assets/Bringer-Of-Death/Individual Sprite/Spell/Bringer-of-Death_Spell_16.png" id="16_k1aml"]
+[ext_resource type="Texture2D" uid="uid://dqhf81qt5yrh5" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_8.png" id="17_vyht0"]
+[ext_resource type="Texture2D" uid="uid://cvb5toywupt15" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_9.png" id="18_c47qm"]
+[ext_resource type="Texture2D" uid="uid://cl3mfhd4721om" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_10.png" id="19_jrsxt"]
+[ext_resource type="Texture2D" uid="uid://brhd871plkej1" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_11.png" id="20_gx3si"]
+[ext_resource type="Texture2D" uid="uid://bvu1mxubfwntm" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_12.png" id="21_cwnc1"]
+[ext_resource type="Texture2D" uid="uid://dydkey8x74nae" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_13.png" id="22_jjnqn"]
+[ext_resource type="Texture2D" uid="uid://2ydpmum7q6i7" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_14.png" id="23_nosnc"]
+[ext_resource type="Texture2D" uid="uid://dx8fufwiohaos" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_15.png" id="24_xfo8x"]
+[ext_resource type="Texture2D" uid="uid://bxwehklc44lp2" path="res://assets/Bringer-Of-Death/Individual Sprite/No Effect Sprites/Spell/Bringer-of-Death_Spell_16.png" id="25_71okn"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pmdix")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0lje1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mqqqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_45ao0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_35duk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fm3pe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c3ekg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kxo03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wtpfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0m8oy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_k511t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lprur")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_jd8r0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_glmrp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ha5yd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_k1aml")
+}],
+"loop": false,
+"name": &"active",
+"speed": 16.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_gi1jt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bj7y2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ybasw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_xr2j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_vovs3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ydcpa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2ofah")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_vyht0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_c47qm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_jrsxt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_gx3si")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_cwnc1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_jjnqn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_nosnc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_xfo8x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_71okn")
+}],
+"loop": true,
+"name": &"inactive",
+"speed": 16.0
+}]

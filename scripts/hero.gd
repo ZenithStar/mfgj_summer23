@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Hero
 
 @export var speed = 100
-@export var velocity_decay: float = 0.8
+@export var velocity_decay: float = 0.9
 @export var move_left: String = "move_left"
 @export var move_right: String = "move_right"
 @export var move_up: String = "move_up"
@@ -16,6 +16,7 @@ class_name Hero
 
 enum State {ACTIVE, IMMUNE}
 @onready var state: State = State.ACTIVE
+@export var immunity_duration: float = 0.5
 
 const sword_class : PackedScene = preload("res://prefabs/sword.tscn")
 const sword_beam_class : PackedScene = preload("res://prefabs/sword_beam.tscn")
@@ -25,7 +26,8 @@ const sword_beam_class : PackedScene = preload("res://prefabs/sword_beam.tscn")
 @onready var sword: SwordSwing = null
 @onready var last_move_vector: Vector2 = Vector2(0.0,1.0)
 @onready var external_impulse: Vector2 = Vector2.ZERO
-@onready var current_hp = Globals.life
+@onready var max_hp: float = 3.0 # Globals.life
+@onready var current_hp:float = max_hp
 @export var zoom_rate: float = pow(2.0, 1.0/10.0)
 func _input(event):
 	if event.is_action("zoom_in"):
@@ -64,17 +66,17 @@ func _physics_process(_delta):
 		attack(offset)
 	velocity = input_direction * speed + external_impulse
 	move_and_slide()
-	if state == State.IMMUNE:
+	if external_impulse.length() >= 10:
 		external_impulse *= velocity_decay
 		if external_impulse.length() < 10:
 			external_impulse = Vector2.ZERO
-			state = State.ACTIVE
 
-func take_hit(damage: int, knockback: Vector2):
+func take_hit(damage: float, knockback: Vector2):
 	if state == State.ACTIVE:
 		current_hp -= damage
 		external_impulse = knockback 
 		state = State.IMMUNE
 		$AnimationPlayer.play("damaged")
 		$HitSFX.play()
-			
+		await get_tree().create_timer(immunity_duration).timeout
+		state = State.ACTIVE

@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2amurd3kdhel"]
+[gd_scene load_steps=9 format=3 uid="uid://b2amurd3kdhel"]
 
 [ext_resource type="Script" path="res://scripts/hero.gd" id="1_35nd0"]
 [ext_resource type="SpriteFrames" uid="uid://dsf7hxws2srsw" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight.tres" id="2_kdfkg"]
+[ext_resource type="PackedScene" uid="uid://ni6n1820gis5" path="res://prefabs/health_nameplate.tscn" id="3_480ph"]
 [ext_resource type="AudioStream" uid="uid://dpoghggshbuoe" path="res://assets/Meta data assets files/sounds/fx/thorn.wav" id="3_tfj4s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vk1ef"]
@@ -43,7 +44,7 @@ _data = {
 "damaged": SubResource("Animation_knhbx")
 }
 
-[node name="Hero" type="CharacterBody2D"]
+[node name="Hero" type="CharacterBody2D" groups=["Player"]]
 collision_layer = 3
 collision_mask = 3
 motion_mode = 1
@@ -63,6 +64,12 @@ frame_progress = 0.183468
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
+
+[node name="HealthNameplate" parent="." instance=ExtResource("3_480ph")]
+offset_left = -6.0
+offset_top = -10.0
+offset_right = 6.0
+offset_bottom = -9.0
 
 [node name="HitSFX" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_tfj4s")
