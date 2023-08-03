@@ -1,6 +1,8 @@
 extends Enemy
 class_name Bat
 
+func _ready():
+	death_signal.connect(death)
 
 @export var wander_rate:float = 0.1
 @export var patrol_radius: float = 100
@@ -60,3 +62,14 @@ func orbit(charge:bool = false):
 			if command_velocity.length() > decayed_velocity():
 				command_velocity = command_velocity.normalized() * decayed_velocity()
 			return BeehaveTree.RUNNING
+func death():
+	command_velocity = Vector2.ZERO
+	var death_animation_player = get_node("DeathAnimationPlayer")
+	if death_animation_player != null:
+		death_animation_player.play("death")
+	var death_animation = get_node("DeathAnimation")
+	if death_animation != null:
+		death_animation.play("death")
+	$AnimatedSprite2D.stop()
+	state = State.DYING
+	

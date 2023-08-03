@@ -12,6 +12,7 @@ enum State {ACTIVE, HITSTUN, DYING}
 @export var alert_pack: bool = true
 @export var hitstun_duration: float = 0.1
 @export var touch_damage: bool = true
+@export var temporary: bool = false
 @onready var current_hp = max_hp
 @onready var command_velocity = Vector2.ZERO
 @onready var response_velocity = Vector2.ZERO
@@ -57,10 +58,10 @@ func target_in_range(distance: float = max_target_range) -> bool:
 func establish_target(body):
 	if target == null and not check_far_from_spawn():
 		target = body
-		var exclaim_player = $ExclamationAnimationPlayer
+		var exclaim_player = get_node("ExclamationAnimationPlayer")
 		if exclaim_player != null:
 			exclaim_player.play("exclaim")
-		var alert_sfx = $AlertedSFX
+		var alert_sfx = get_node("AlertedSFX")
 		if alert_sfx != null:
 			alert_sfx.play()
 		if alert_pack:
@@ -94,7 +95,8 @@ func disengage():
 func recover():
 	if state == State.ACTIVE:
 		if current_hp < max_hp:
-			current_hp = clamp(current_hp + recovery_rate * get_physics_process_delta_time(), 0.0, max_hp)
+			if not temporary:
+				current_hp = clamp(current_hp + recovery_rate * get_physics_process_delta_time(), 0.0, max_hp)
 			command_velocity = Vector2.ZERO
 			$AnimationPlayer.play("healing")
 			return BeehaveTree.RUNNING
@@ -103,16 +105,13 @@ func recover():
 	else:
 		return BeehaveTree.FAILURE
 		
+signal death_signal
 func take_hit(damage: float, knockback: Vector2, source: Hero) -> bool:
 	if state == State.ACTIVE:
 		current_hp -= damage
+		response_velocity += knockback * knockback_factor
 		if current_hp <= 0:
-			command_velocity = Vector2.ZERO
-			response_velocity += knockback * knockback_factor
-			$DeathAnimationPlayer.play("death")
-			$DeathAnimation.play("death")
-			$AnimatedSprite2D.stop()
-			state = State.DYING
+			death_signal.emit()
 		else:
 			if hitstun_duration > 0.0:
 				state = State.HITSTUN
@@ -120,15 +119,16 @@ func take_hit(damage: float, knockback: Vector2, source: Hero) -> bool:
 			var ani_player = $AnimationPlayer
 			if ani_player != null && ani_player.has_animation("damaged"):
 				ani_player.play("damaged")
-			response_velocity += knockback * knockback_factor
 			if target == null:
 				establish_target(source)
 		$HitSFX.play()
 		return true
 	else:
 		return false
-
-func _process(_delta):
+@export var lifespan : float = 60.0 ## if temporary, how long it'll take to die
+func _process(delta):
+	if temporary:
+		current_hp -= max_hp / lifespan * delta
 	if command_velocity.x < 0:
 		$AnimatedSprite2D.flip_h = true
 	else:

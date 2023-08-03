@@ -14,7 +14,7 @@ class_name Hero
 @export var action: String = "action"
 @export var action_mouse: String = "action_mouse"
 
-enum State {ACTIVE, IMMUNE}
+enum State {ACTIVE, IMMUNE, DEAD}
 @onready var state: State = State.ACTIVE
 @export var immunity_duration: float = 0.5
 
@@ -47,25 +47,26 @@ func attack(direction):
 func _physics_process(_delta):
 	var input_direction = Input.get_vector(move_left, move_right, move_up, move_down)
 	var action_direction = Input.get_vector(action_left, action_right, action_up, action_down)
-	if input_direction.length() > 0:
-		if input_direction.x != 0:
-			if input_direction.x > 0:
-				$AnimatedSprite2D.flip_h = false
-			else:
-				$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.play("run")
-		last_move_vector = input_direction
-	else:
-		$AnimatedSprite2D.play("idle")
-	if action_direction.length() > 0:
-		attack(action_direction)
-	if Input.is_action_pressed(action):
-		attack(last_move_vector)
-	if Input.is_action_pressed(action_mouse):
-		var offset = get_global_mouse_position() - global_position
-		attack(offset)
-	velocity = input_direction * speed + external_impulse
-	move_and_slide()
+	if state != State.DEAD:
+		if input_direction.length() > 0:
+			if input_direction.x != 0:
+				if input_direction.x > 0:
+					$AnimatedSprite2D.flip_h = false
+				else:
+					$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("run")
+			last_move_vector = input_direction
+		else:
+			$AnimatedSprite2D.play("idle")
+		if action_direction.length() > 0:
+			attack(action_direction)
+		if Input.is_action_pressed(action):
+			attack(last_move_vector)
+		if Input.is_action_pressed(action_mouse):
+			var offset = get_global_mouse_position() - global_position
+			attack(offset)
+		velocity = input_direction * speed + external_impulse
+		move_and_slide()
 	if external_impulse.length() >= 10:
 		external_impulse *= velocity_decay
 		if external_impulse.length() < 10:
@@ -75,8 +76,13 @@ func take_hit(damage: float, knockback: Vector2):
 	if state == State.ACTIVE:
 		current_hp -= damage
 		external_impulse = knockback 
-		state = State.IMMUNE
 		$AnimationPlayer.play("damaged")
 		$HitSFX.play()
-		await get_tree().create_timer(immunity_duration).timeout
-		state = State.ACTIVE
+		if current_hp < 0:
+			state = State.DEAD
+			var tween = get_tree().create_tween()
+			tween.tween_property($AnimatedSprite2D, "modulate", Color.BLACK, 0.5)
+		else:
+			state = State.IMMUNE
+			await get_tree().create_timer(immunity_duration).timeout
+			state = State.ACTIVE

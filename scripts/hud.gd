@@ -3,8 +3,9 @@ extends CanvasLayer
 var health_icon_class : PackedScene = preload("res://prefabs/health_ui_icon.tscn")
 
 func _ready():
-	for i in range( int(Globals.life) ):
-		var icon = health_icon_class.instantiate()
+	pass
+	# for i in range( int(Globals.life) ):
+		#var icon = health_icon_class.instantiate()
 		#$HealthContainer.add_child(icon)
 
 func _process(_delta):

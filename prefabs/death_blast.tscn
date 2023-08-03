@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://be37c1y0unmh8"]
+
+[ext_resource type="Texture2D" uid="uid://nyifsausan3j" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="1_2ctc6"]
+[ext_resource type="Script" path="res://scripts/death_blast.gd" id="1_qmttm"]
+
+[node name="DeathBlast" type="Node2D"]
+script = ExtResource("1_qmttm")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(1, 0.0431373, 0.247059, 1)
+energy = 0.0
+shadow_enabled = true
+texture = ExtResource("1_2ctc6")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]

@@ -45,8 +45,8 @@ _data = {
 }
 
 [node name="Hero" type="CharacterBody2D" groups=["Player"]]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 motion_mode = 1
 safe_margin = 1.0
 script = ExtResource("1_35nd0")
@@ -56,9 +56,8 @@ shape = SubResource("CircleShape2D_vk1ef")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("2_kdfkg")
-animation = &"run"
+animation = &"dead"
 autoplay = "idle"
-frame_progress = 0.183468
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

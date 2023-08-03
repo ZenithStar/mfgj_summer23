@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7f4kpf15fk6n"]
+[gd_scene load_steps=13 format=3 uid="uid://b7f4kpf15fk6n"]
 
 [ext_resource type="Script" path="res://scripts/bringer_of_death.gd" id="1_8f1kw"]
 [ext_resource type="SpriteFrames" uid="uid://dolp3aemi8m2k" path="res://assets/Bringer-Of-Death/bringer_of_death.tres" id="1_iy2yk"]
@@ -50,18 +50,192 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0.501961), Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_itrrp"]
+resource_name = "huge_swing"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.3),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"takeback", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"swing", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6, 2.3, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1.5, 1, 1.5, 1), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"contextual_smash_blast"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_kqmff"]
+resource_name = "huge_spell"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [&"cast", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"channel", 1.0, false],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"contextual_cast_spell"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_g0qmu"]
+resource_name = "teleport_and_spawn_bats"
+length = 2.6
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"death", 1.0, false],
+"method": &"play"
+}, {
+"args": [&"death"],
+"method": &"play_backwards"
+}]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 2.2, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0, 0, 0.501961), Color(0, 0, 0, 0.501961), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"contextual_spawn_bats"
+}, {
+"args": [],
+"method": &"nothing_personel_kid"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4m40b"]
+resource_name = "danmaku"
+length = 0.5
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [&"fireball", 1.0, false],
+"method": &"play"
+}, {
+"args": [],
+"method": &"stop"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"contextual_danmaku"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bgl7y"]
 _data = {
 "RESET": SubResource("Animation_y0ecx"),
+"danmaku": SubResource("Animation_4m40b"),
 "enshadow": SubResource("Animation_cyq0m"),
+"huge_spell": SubResource("Animation_kqmff"),
+"huge_swing": SubResource("Animation_itrrp"),
+"teleport_and_spawn_bats": SubResource("Animation_g0qmu"),
 "unshadow": SubResource("Animation_l4voq")
 }
 
 [node name="Spawn" type="Node2D"]
 
 [node name="BringerOfDeath" type="CharacterBody2D" parent="."]
-collision_layer = 34
-collision_mask = 2
+collision_layer = 36
+collision_mask = 4
 motion_mode = 1
 script = ExtResource("1_8f1kw")
 max_hp = 100.0
@@ -80,9 +254,9 @@ polygon = PackedVector2Array(-9, 45, -6, 0, -2, -9, 6, -9, 11, 0, 12, 45, 2, 28)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="BringerOfDeath"]
 position = Vector2(-35, 0)
 sprite_frames = ExtResource("1_iy2yk")
-animation = &"idle"
+animation = &"fireball"
 autoplay = "idle"
-frame_progress = 0.615069
+frame_progress = 0.537856
 
 [node name="HealthNameplate" parent="BringerOfDeath" instance=ExtResource("3_i6jhq")]
 offset_left = -16.0
@@ -97,5 +271,3 @@ stream = ExtResource("3_yejdg")
 libraries = {
 "": SubResource("AnimationLibrary_bgl7y")
 }
-
-[connection signal="animation_finished" from="BringerOfDeath/AnimatedSprite2D" to="BringerOfDeath" method="_on_animated_sprite_2d_animation_finished"]
