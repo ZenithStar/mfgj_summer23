@@ -220,7 +220,7 @@ _data = {
 [node name="Spawn" type="Node2D"]
 
 [node name="Bat" type="CharacterBody2D" parent="."]
-collision_layer = 32
+collision_layer = 40
 collision_mask = 2
 safe_margin = 1.0
 script = ExtResource("1_jso4m")

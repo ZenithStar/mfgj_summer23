@@ -111,6 +111,7 @@ func take_hit(damage: float, knockback: Vector2, source: Hero) -> bool:
 		current_hp -= damage
 		response_velocity += knockback * knockback_factor
 		if current_hp <= 0:
+			state = State.DYING
 			death_signal.emit()
 		else:
 			if hitstun_duration > 0.0:

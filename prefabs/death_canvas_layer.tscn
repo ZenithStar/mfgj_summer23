@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://da0q43pj2lblg"]
+
+[ext_resource type="Script" path="res://scripts/death_canvas_layer.gd" id="1_od651"]
+
+[node name="DeathCanvasLayer" type="CanvasLayer"]
+process_mode = 4
+layer = 105
+visible = false
+script = ExtResource("1_od651")
+
+[node name="DeathScreen" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="DeathScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="DeathScreen/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "UR DED"
+
+[node name="gitgud" type="Button" parent="DeathScreen/VBoxContainer"]
+layout_mode = 2
+text = "git gud
+"
+
+[node name="or" type="Label" parent="DeathScreen/VBoxContainer"]
+layout_mode = 2
+text = "or
+"
+horizontal_alignment = 1
+
+[node name="HPHBoxContainer" type="HBoxContainer" parent="DeathScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="HPLabel" type="Label" parent="DeathScreen/VBoxContainer/HPHBoxContainer"]
+layout_mode = 2
+text = "100%"
+
+[node name="HP" type="Button" parent="DeathScreen/VBoxContainer/HPHBoxContainer"]
+layout_mode = 2
+text = "+100% HP
+"
+
+[node name="DamageHBoxContainer" type="HBoxContainer" parent="DeathScreen/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="DamageLabel" type="Label" parent="DeathScreen/VBoxContainer/DamageHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "100%"
+horizontal_alignment = 1
+
+[node name="Damage" type="Button" parent="DeathScreen/VBoxContainer/DamageHBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "+100% Damage"
+
+[connection signal="pressed" from="DeathScreen/VBoxContainer/gitgud" to="." method="_on_gitgud_pressed"]
+[connection signal="pressed" from="DeathScreen/VBoxContainer/HPHBoxContainer/HP" to="." method="_on_hp_pressed"]
+[connection signal="pressed" from="DeathScreen/VBoxContainer/DamageHBoxContainer/Damage" to="." method="_on_damage_pressed"]

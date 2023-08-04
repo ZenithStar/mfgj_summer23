@@ -26,7 +26,7 @@ const sword_beam_class : PackedScene = preload("res://prefabs/sword_beam.tscn")
 @onready var sword: SwordSwing = null
 @onready var last_move_vector: Vector2 = Vector2(0.0,1.0)
 @onready var external_impulse: Vector2 = Vector2.ZERO
-@onready var max_hp: float = 3.0 # Globals.life
+@onready var max_hp: float = Globals.hp_scale - 0.01
 @onready var current_hp:float = max_hp
 @export var zoom_rate: float = pow(2.0, 1.0/10.0)
 func _input(event):
@@ -34,13 +34,18 @@ func _input(event):
 		$Camera2D.zoom = $Camera2D.zoom * zoom_rate
 	elif event.is_action("zoom_out"):
 		$Camera2D.zoom = $Camera2D.zoom / zoom_rate
+	elif event.is_action("toggle_pause") or event.is_action("ui_menu") or event.is_action("ui_cancel"):
+		PauseMenu.pause()
+		
 
 func attack(direction):
 	if sword == null:
 		sword = sword_class.instantiate()
+		sword.damage *= Globals.damage_scale
 		sword.rotation = atan2(direction.y, direction.x)
 		add_child(sword)
 		var sword_beam = sword_beam_class.instantiate()
+		sword_beam.damage *= Globals.damage_scale
 		sword_beam.set_direction(direction)
 		add_child(sword_beam)
 
@@ -82,6 +87,7 @@ func take_hit(damage: float, knockback: Vector2):
 			state = State.DEAD
 			var tween = get_tree().create_tween()
 			tween.tween_property($AnimatedSprite2D, "modulate", Color.BLACK, 0.5)
+			$DeathCanvasLayer.enable()
 		else:
 			state = State.IMMUNE
 			await get_tree().create_timer(immunity_duration).timeout

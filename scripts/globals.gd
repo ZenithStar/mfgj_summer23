@@ -1,3 +1,4 @@
 extends Node
 
-@onready var life:float = 10.0
+@onready var hp_scale:float = 1.0
+@onready var damage_scale:float = 1.0

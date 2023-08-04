@@ -17,6 +17,7 @@ position = Vector2(0, 392)
 motion_mode = 0
 
 [node name="HUD" parent="." instance=ExtResource("3_lu2sa")]
+visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ypyo5")

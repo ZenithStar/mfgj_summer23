@@ -11,12 +11,9 @@ enum BringerOfDeathStates {
 	ACTIVE,
 	BUSY, # All actions are handled by the AnimationPlayer
 	CASTING,
+	DYING
 }
-enum BringerOfDeathPhase {
-	FIRST,
-	SECOND,
-	FINAL
-}
+@onready var stage: int = 1
 @onready var action_state: BringerOfDeathStates = BringerOfDeathStates.ACTIVE
 func awaken ():
 	var player = get_tree().get_first_node_in_group("Player")
@@ -88,8 +85,7 @@ func _ready():
 	death_signal.connect(death)
 @export var max_mana: float = 5.0
 @onready var mana_pool: float = 5.0
-@onready var mana_regen: float = 5.0
-@onready var stage: int = 1
+@onready var mana_regen: float = 1.0
 const spells: Array[String] = ["huge_swing", "huge_spell", "teleport_and_spawn_bats", "danmaku"]
 #const spells: Array[String] = ["huge_swing", "danmaku"]
 
@@ -99,7 +95,7 @@ func _process(delta):
 			var i: int = randi() % spells.size()
 			$AnimationPlayer.play(spells[i])
 			mana_pool -= 5.0
-	mana_pool = clamp(mana_pool + delta, 0.0, max_mana)
+	mana_pool = clamp(mana_pool + mana_regen*delta, 0.0, max_mana)
 	if $AnimationPlayer.current_animation == "":
 		match action_state:
 			BringerOfDeathStates.ACTIVE:
@@ -113,13 +109,13 @@ func contextual_smash_blast():
 	var offset = smash_blast_offset
 	if $AnimatedSprite2D.flip_h:
 		smash_blast_offset *= Vector2(-1.0, 1.0)
-	smash_blast(offset + global_position)
+	smash_blast(offset + global_position, stage * 150.0)
 func contextual_cast_spell():
 	var spell_duration = 2.5
 	var n = 4 * stage
-	cast_spell_spiral( target.global_position, n * 10, n, 150.0, spell_duration / 10 / n )
+	cast_spell_spiral( target.global_position, n * 10, n, (n * 10000.0) ** 0.5, spell_duration / 10 / n )
 func contextual_spawn_bats():
-	var n = 5 * stage
+	var n = 5
 	for i in n:
 		spawn_bat()
 func contextual_danmaku():
@@ -128,4 +124,14 @@ func contextual_danmaku():
 func nothing_personel_kid():
 	global_position = (target.global_position - global_position).normalized() * 30.0 + target.global_position
 func death():
-	pass
+	action_state = BringerOfDeathStates.DYING
+	stage += 1
+	$AnimationPlayer.play("death")
+	await get_tree().create_timer(3.0).timeout
+	max_hp = 100.0 * stage
+	current_hp = max_hp
+	mana_regen = 0.5 * (stage + 1)
+	max_mana = 5.0 * stage
+	mana_pool = 4.0
+	action_state = BringerOfDeathStates.ACTIVE
+	state = State.ACTIVE

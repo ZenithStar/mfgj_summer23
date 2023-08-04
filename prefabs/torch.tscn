@@ -8,7 +8,7 @@
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_uxdln")
 autoplay = "default"
-frame_progress = 0.903948
+frame_progress = 0.0689189
 
 [node name="SpriteLight" type="PointLight2D" parent="."]
 texture = ExtResource("2_o1i0v")

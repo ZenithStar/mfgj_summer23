@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b2amurd3kdhel"]
+[gd_scene load_steps=11 format=3 uid="uid://b2amurd3kdhel"]
 
 [ext_resource type="Script" path="res://scripts/hero.gd" id="1_35nd0"]
 [ext_resource type="SpriteFrames" uid="uid://dsf7hxws2srsw" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/heroes/knight/knight.tres" id="2_kdfkg"]
 [ext_resource type="PackedScene" uid="uid://ni6n1820gis5" path="res://prefabs/health_nameplate.tscn" id="3_480ph"]
 [ext_resource type="AudioStream" uid="uid://dpoghggshbuoe" path="res://assets/Meta data assets files/sounds/fx/thorn.wav" id="3_tfj4s"]
 [ext_resource type="Texture2D" uid="uid://nyifsausan3j" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="5_4070p"]
+[ext_resource type="PackedScene" uid="uid://da0q43pj2lblg" path="res://prefabs/death_canvas_layer.tscn" id="6_6vrxj"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vk1ef"]
 radius = 6.0
@@ -88,3 +89,5 @@ energy = 0.2
 range_item_cull_mask = 2
 shadow_enabled = true
 texture = ExtResource("5_4070p")
+
+[node name="DeathCanvasLayer" parent="." instance=ExtResource("6_6vrxj")]
