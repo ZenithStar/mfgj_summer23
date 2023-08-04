@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3xt28oe4lu51"]
+
+[ext_resource type="SpriteFrames" uid="uid://dr60jgp1n1o1u" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/props_itens/torch.tres" id="1_uxdln"]
+[ext_resource type="Texture2D" uid="uid://nyifsausan3j" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="2_o1i0v"]
+
+[node name="Torch" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_uxdln")
+autoplay = "default"
+frame_progress = 0.903948
+
+[node name="SpriteLight" type="PointLight2D" parent="."]
+texture = ExtResource("2_o1i0v")
+texture_scale = 4.0
+
+[node name="ShadowLight" type="PointLight2D" parent="."]
+range_item_cull_mask = 2
+shadow_enabled = true
+texture = ExtResource("2_o1i0v")
+texture_scale = 4.0

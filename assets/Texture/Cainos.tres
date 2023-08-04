@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://3xa6maqlkqba"]
+[gd_resource type="TileSet" load_steps=15 format=3 uid="uid://3xa6maqlkqba"]
 
 [ext_resource type="Texture2D" uid="uid://dehp0ae8hbtve" path="res://assets/Texture/TX Tileset Grass.png" id="1_i6ard"]
 [ext_resource type="Texture2D" uid="uid://c8wjywfqmtca7" path="res://assets/Texture/TX Tileset Stone Ground.png" id="2_ykd36"]
@@ -6,6 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://8nujlyxo0bkv" path="res://assets/tile_set_f.png" id="4_hetfs"]
 [ext_resource type="Texture2D" uid="uid://cxg6lxgogkrl1" path="res://assets/tile_set_stone.png" id="4_rddpa"]
 [ext_resource type="Texture2D" uid="uid://dwu3ginqj40gv" path="res://assets/MainLev2.0.png" id="5_8b86p"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_ydm8w"]
+tile_data = PackedInt32Array(0, 131076, 0, 65536, 131076, 5, 131072, 131076, 6, 196608, 131076, 7, 262144, 131076, 8, 1, 262148, 0, 65537, 262148, 1, 131073, 262148, 6, 196609, 262148, 7, 262145, 262148, 8, 2, 458756, 0, 65538, 458756, 5, 131074, 458756, 6, 196610, 458756, 7, 262146, 458756, 8)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_y72xw"]
+tile_data = PackedInt32Array(0, 131076, 0, 65536, 131076, 5, 131072, 131076, 6, 196608, 262148, 7, 262144, 196612, 7, 327680, 131076, 7, 393216, 131076, 8, 1, 262148, 0, 65537, 262148, 1, 131073, 262148, 6, 196609, 327684, 7, 262145, 262148, 7, 327681, 262148, 7, 393217, 262148, 8, 2, 458756, 0, 65538, 458756, 5, 131074, 458756, 6, 196610, 393220, 7, 262146, 327684, 7, 327682, 458756, 7, 393218, 458756, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tu4cn"]
 texture = ExtResource("1_i6ard")
@@ -6662,3 +6668,5 @@ sources/2 = SubResource("TileSetAtlasSource_wcmby")
 sources/8 = SubResource("TileSetAtlasSource_iql6p")
 sources/3 = SubResource("TileSetAtlasSource_516gm")
 sources/4 = SubResource("TileSetAtlasSource_1qu4w")
+pattern_0 = SubResource("TileMapPattern_ydm8w")
+pattern_1 = SubResource("TileMapPattern_y72xw")

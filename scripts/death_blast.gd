@@ -11,6 +11,7 @@ var target : Hero
 func _ready():
 	target = get_tree().get_first_node_in_group("Player")
 	$PointLight2D.texture_scale = blast_radius / texture_radius
+	$ShadowLight.texture_scale = blast_radius / texture_radius
 func _process(delta):
 	var progress: float = 0.0
 	if elapsed < blast_duration:
@@ -21,6 +22,7 @@ func _process(delta):
 		queue_free()
 	$RayCast2D.target_position = (target.global_position - $RayCast2D.global_position).normalized() * blast_radius * progress
 	$PointLight2D.energy = blast_magnitude * progress
+	$ShadowLight.energy = blast_magnitude * progress
 	var c: float=  1-progress
 	$CanvasModulate.color = Color( c,c,c )
 	elapsed += delta

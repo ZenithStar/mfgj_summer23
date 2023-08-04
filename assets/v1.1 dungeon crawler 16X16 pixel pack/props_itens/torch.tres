@@ -1,0 +1,34 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://dr60jgp1n1o1u"]
+
+[ext_resource type="Texture2D" uid="uid://brrkgh1ejudi3" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/props_itens/torch_anim_f0.png" id="1_cq2sq"]
+[ext_resource type="Texture2D" uid="uid://bf5x7n0fqpaua" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/props_itens/torch_anim_f1.png" id="2_xsiuj"]
+[ext_resource type="Texture2D" uid="uid://d2oiokr31xnww" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/props_itens/torch_anim_f2.png" id="3_n2md3"]
+[ext_resource type="Texture2D" uid="uid://bboggor7e2h4b" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/props_itens/torch_anim_f3.png" id="4_wiehb"]
+[ext_resource type="Texture2D" uid="uid://ogcixs1ehrbt" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/props_itens/torch_anim_f4.png" id="5_ei5ku"]
+[ext_resource type="Texture2D" uid="uid://c16ax1jlmbba" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/props_itens/torch_anim_f5.png" id="6_5xfkk"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_cq2sq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xsiuj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_n2md3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_wiehb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ei5ku")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5xfkk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]

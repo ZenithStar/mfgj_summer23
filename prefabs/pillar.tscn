@@ -1,0 +1,30 @@
+[gd_scene load_steps=7 format=3 uid="uid://dcgx1lnir0hxe"]
+
+[ext_resource type="Texture2D" uid="uid://bp4apuwwl7bq8" path="res://assets/pillar.png" id="1_gkfeb"]
+[ext_resource type="Texture2D" uid="uid://bbhcltgdypici" path="res://assets/pillar_n.png" id="2_gd3wt"]
+[ext_resource type="Texture2D" uid="uid://bo0l2ad5eh1nm" path="res://assets/pillar_s.png" id="3_36jkw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xs0sw"]
+radius = 51.0882
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_wh36l"]
+polygon = PackedVector2Array(-33, 5, -7, 22, 14, 20, 32, 5, 47, -28, 20, -44, -18, -44, -49, -28)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6t3jn"]
+diffuse_texture = ExtResource("1_gkfeb")
+normal_texture = ExtResource("2_gd3wt")
+specular_texture = ExtResource("3_36jkw")
+
+[node name="Pillar" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+z_index = 2
+position = Vector2(0, -23)
+shape = SubResource("CircleShape2D_xs0sw")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_wh36l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -76)
+texture = SubResource("CanvasTexture_6t3jn")

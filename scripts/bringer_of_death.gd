@@ -64,7 +64,7 @@ func spawn_bat( z_score: float = 40.0):
 	tween.tween_property(bat_c, "target", target, 0.0)
 	add_sibling(bat)
 	tween.play()
-func danmaku_stream( n:int = 20, projectile_velocity: float = 300.0, delay:float = 0.1):
+func danmaku_stream( n:int = 20, projectile_velocity: float = 200.0, delay:float = 0.1):
 	for i in n:
 		var fireball = fireball_class.instantiate()
 		var orientation = target.global_position - global_position
@@ -73,7 +73,7 @@ func danmaku_stream( n:int = 20, projectile_velocity: float = 300.0, delay:float
 		fireball.velocity = orientation.normalized() * projectile_velocity
 		add_sibling(fireball)
 		await get_tree().create_timer(delay).timeout
-func danmaku_curtain( n:int = 20, projectile_velocity: float = 300.0, delay:float = 0.1):
+func danmaku_curtain( n:int = 10, projectile_velocity: float = 200.0, delay:float = 0.1):
 	for i in range(n*2, 0, -1):
 		var fireball = fireball_class.instantiate()
 		var rotation_offset = (PI/2 * (n-i) / n) * (-1 if i % 2 == 0 else 1)
@@ -82,7 +82,7 @@ func danmaku_curtain( n:int = 20, projectile_velocity: float = 300.0, delay:floa
 		fireball.rotation = atan2(-orientation.y, orientation.x)
 		fireball.velocity = orientation.normalized() * projectile_velocity
 		add_sibling(fireball)
-		await get_tree().create_timer(delay/2).timeout
+		await get_tree().create_timer(delay).timeout
 
 func _ready():
 	death_signal.connect(death)

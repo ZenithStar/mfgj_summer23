@@ -1,21 +1,25 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1umiewpn2da2"]
+[gd_scene load_steps=6 format=3 uid="uid://c1umiewpn2da2"]
 
+[ext_resource type="PackedScene" uid="uid://dax6568enoxdk" path="res://levels/cave_level.tscn" id="1_h708d"]
 [ext_resource type="PackedScene" uid="uid://b2amurd3kdhel" path="res://prefabs/hero.tscn" id="1_jfk27"]
-[ext_resource type="PackedScene" uid="uid://dl56gjn01n5xb" path="res://levels/test_level.tscn" id="2_ce357"]
 [ext_resource type="PackedScene" uid="uid://b2udr2jakhwsl" path="res://prefabs/ai/overlay_ui.tscn" id="3_lu2sa"]
+[ext_resource type="PackedScene" uid="uid://b7f4kpf15fk6n" path="res://prefabs/bringer_of_death.tscn" id="4_3yjr5"]
 
 [sub_resource type="Environment" id="Environment_ypyo5"]
 glow_enabled = true
 
 [node name="main" type="Node2D"]
 
-[node name="Test Level" parent="." instance=ExtResource("2_ce357")]
+[node name="Cave Level" parent="." instance=ExtResource("1_h708d")]
 
 [node name="Hero" parent="." instance=ExtResource("1_jfk27")]
-position = Vector2(688, -184)
+position = Vector2(0, 392)
 motion_mode = 0
 
 [node name="HUD" parent="." instance=ExtResource("3_lu2sa")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ypyo5")
+
+[node name="Spawn" parent="." instance=ExtResource("4_3yjr5")]
+position = Vector2(-1, -13)
