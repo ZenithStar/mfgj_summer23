@@ -2,6 +2,7 @@ extends CanvasLayer
 
 func _ready():
 	unpause()
+	#get_tree().root.process_mode = Node.PROCESS_MODE_ALWAYS
 
 func pause():
 	visible = true
@@ -11,9 +12,13 @@ func unpause():
 	visible = false
 	get_tree().paused = false
 
-func _input(event):
-	if event.is_action("toggle_pause") or event.is_action("ui_menu") or event.is_action("ui_cancel"):
-		unpause()
+func _unhandled_input(event):
+	if event.is_action("toggle_pause"):
+		if event.is_pressed():
+			if get_tree().paused:
+				unpause()
+			else:
+				pause()
 
 func _on_button_pressed():
 	unpause()

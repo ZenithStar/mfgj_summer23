@@ -97,6 +97,10 @@ func recover():
 		if current_hp < max_hp:
 			if not temporary:
 				current_hp = clamp(current_hp + recovery_rate * get_physics_process_delta_time(), 0.0, max_hp)
+			else:
+				if current_hp <= 0:
+					state = State.DYING
+					death_signal.emit()
 			command_velocity = Vector2.ZERO
 			$AnimationPlayer.play("healing")
 			return BeehaveTree.RUNNING

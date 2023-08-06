@@ -3,7 +3,9 @@
 [ext_resource type="Script" path="res://scripts/pause_menu.gd" id="1_pllta"]
 
 [node name="PauseMenuOverlay" type="CanvasLayer"]
+process_mode = 3
 layer = 110
+visible = false
 script = ExtResource("1_pllta")
 
 [node name="PauseMenu" type="Control" parent="."]

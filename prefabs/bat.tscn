@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bd4xkstaqln3m"]
+[gd_scene load_steps=42 format=3 uid="uid://bd4xkstaqln3m"]
 
 [ext_resource type="Script" path="res://scripts/bat.gd" id="1_jso4m"]
 [ext_resource type="SpriteFrames" uid="uid://cdbwbvrp3o5sf" path="res://assets/v1.1 dungeon crawler 16X16 pixel pack/enemies/flying creature/flier.tres" id="1_u5jt1"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="4_imk3u"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector_reactive.gd" id="4_mhx13"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="5_5o2i8"]
-[ext_resource type="AudioStream" uid="uid://dpoghggshbuoe" path="res://assets/Meta data assets files/sounds/fx/thorn.wav" id="5_ikygq"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence_reactive.gd" id="5_p0i0k"]
 [ext_resource type="PackedScene" uid="uid://ni6n1820gis5" path="res://prefabs/health_nameplate.tscn" id="6_km86y"]
 [ext_resource type="PackedScene" uid="uid://cmmnyywipci2m" path="res://prefabs/ai/low_hp.tscn" id="6_sokal"]
@@ -24,6 +23,9 @@
 [ext_resource type="Script" path="res://addons/beehave/nodes/decorators/time_limiter.gd" id="13_18scf"]
 [ext_resource type="PackedScene" uid="uid://b5c8gaa4pmr3i" path="res://prefabs/ai/charge.tscn" id="16_ac5d8"]
 [ext_resource type="PackedScene" uid="uid://0dtvg7fdm1ah" path="res://prefabs/ai/disengage.tscn" id="20_b8uq3"]
+[ext_resource type="AudioStream" uid="uid://k433k6wgcgjc" path="res://assets/LivingMusic/bat_squak_1.ogg" id="25_v1v4c"]
+[ext_resource type="AudioStream" uid="uid://dlkt3w0usbs7x" path="res://assets/LivingMusic/bat_squak_2.ogg" id="26_1hlpo"]
+[ext_resource type="AudioStream" uid="uid://dvbfp5ckpoecq" path="res://assets/LivingMusic/Bat_Enemy_Death.ogg" id="27_5b0b3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j0ffp"]
 radius = 4.0
@@ -249,9 +251,6 @@ label_settings = SubResource("LabelSettings_nocbg")
 stream = ExtResource("3_rl07a")
 volume_db = -20.0
 
-[node name="HitSFX" type="AudioStreamPlayer2D" parent="Bat"]
-stream = ExtResource("5_ikygq")
-
 [node name="HealthNameplate" parent="Bat" instance=ExtResource("6_km86y")]
 offset_left = -6.0
 offset_top = -7.0
@@ -344,6 +343,15 @@ root_node = NodePath("../AnimationPlayer")
 libraries = {
 "": SubResource("AnimationLibrary_ocetj")
 }
+
+[node name="Squak1SFX" type="AudioStreamPlayer2D" parent="Bat"]
+stream = ExtResource("25_v1v4c")
+
+[node name="HitSFX" type="AudioStreamPlayer2D" parent="Bat"]
+stream = ExtResource("26_1hlpo")
+
+[node name="DeathSFX" type="AudioStreamPlayer2D" parent="Bat"]
+stream = ExtResource("27_5b0b3")
 
 [connection signal="body_entered" from="Bat/Detection" to="Bat/Detection" method="_on_body_entered"]
 [connection signal="body_exited" from="Bat/Detection" to="Bat/Detection" method="_on_body_exited"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://be37c1y0unmh8"]
+[gd_scene load_steps=4 format=3 uid="uid://be37c1y0unmh8"]
 
 [ext_resource type="Texture2D" uid="uid://nyifsausan3j" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="1_2ctc6"]
 [ext_resource type="Script" path="res://scripts/death_blast.gd" id="1_qmttm"]
+[ext_resource type="AudioStream" uid="uid://cyjxnnudhuvc2" path="res://assets/LivingMusic/Boss_Slash_glow_attack.ogg" id="3_8m2pu"]
 
 [node name="DeathBlast" type="Node2D"]
 script = ExtResource("1_qmttm")
@@ -21,3 +22,8 @@ shadow_enabled = true
 texture = ExtResource("1_2ctc6")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_8m2pu")
+volume_db = 10.0
+autoplay = true

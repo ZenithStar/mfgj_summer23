@@ -1,10 +1,15 @@
-[gd_scene load_steps=13 format=3 uid="uid://b7f4kpf15fk6n"]
+[gd_scene load_steps=18 format=3 uid="uid://b7f4kpf15fk6n"]
 
 [ext_resource type="Script" path="res://scripts/bringer_of_death.gd" id="1_8f1kw"]
 [ext_resource type="SpriteFrames" uid="uid://dolp3aemi8m2k" path="res://assets/Bringer-Of-Death/bringer_of_death.tres" id="1_iy2yk"]
 [ext_resource type="PackedScene" uid="uid://ni6n1820gis5" path="res://prefabs/health_nameplate.tscn" id="3_i6jhq"]
-[ext_resource type="AudioStream" uid="uid://dpoghggshbuoe" path="res://assets/Meta data assets files/sounds/fx/thorn.wav" id="3_yejdg"]
+[ext_resource type="AudioStream" uid="uid://dya1fw05gedq3" path="res://assets/LivingMusic/Boss_taking_damage.wav" id="4_ju2xf"]
+[ext_resource type="AudioStream" uid="uid://b3mpoopdm4y1y" path="res://assets/LivingMusic/Boss_Bullet_Hell_attack.ogg" id="5_7opkc"]
 [ext_resource type="Texture2D" uid="uid://nyifsausan3j" path="res://assets/2d_lights_and_shadows_neutral_point_light.webp" id="5_7r1v0"]
+[ext_resource type="AudioStream" uid="uid://drlgidp78whg7" path="res://assets/LivingMusic/Teleport_despawn.ogg" id="6_op244"]
+[ext_resource type="AudioStream" uid="uid://c1lu7v0xumnbi" path="res://assets/LivingMusic/Boss__Fire_Storm__attack.ogg" id="6_ry1vu"]
+[ext_resource type="AudioStream" uid="uid://huo5cxdt3fj3" path="res://assets/LivingMusic/Teleport_respawn.ogg" id="7_hhmpq"]
+[ext_resource type="AudioStream" uid="uid://cmfcv5mh8p4k0" path="res://assets/LivingMusic/Boss_sword_slash.wav" id="9_n3uxl"]
 
 [sub_resource type="Animation" id="Animation_y0ecx"]
 resource_name = "RESET"
@@ -103,6 +108,20 @@ tracks/2/keys = {
 "method": &"contextual_smash_blast"
 }]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SwordSlashSFX")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_kqmff"]
 resource_name = "huge_spell"
@@ -141,6 +160,20 @@ tracks/1/keys = {
 "method": &"contextual_cast_spell"
 }]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FireStormSFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_4m40b"]
 resource_name = "danmaku"
@@ -174,6 +207,20 @@ tracks/1/keys = {
 "values": [{
 "args": [],
 "method": &"contextual_danmaku"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FireStormSFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
 }]
 }
 
@@ -224,6 +271,34 @@ tracks/2/keys = {
 }, {
 "args": [],
 "method": &"nothing_personel_kid"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TeleportDespawnSFX")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("TeleportRespawnSFX")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
 }]
 }
 
@@ -329,7 +404,23 @@ offset_right = 16.0
 offset_bottom = -13.0
 
 [node name="HitSFX" type="AudioStreamPlayer2D" parent="BringerOfDeath"]
-stream = ExtResource("3_yejdg")
+stream = ExtResource("4_ju2xf")
+volume_db = -5.0
+
+[node name="DanmakuSFX" type="AudioStreamPlayer2D" parent="BringerOfDeath"]
+stream = ExtResource("5_7opkc")
+
+[node name="FireStormSFX" type="AudioStreamPlayer2D" parent="BringerOfDeath"]
+stream = ExtResource("6_ry1vu")
+
+[node name="TeleportDespawnSFX" type="AudioStreamPlayer2D" parent="BringerOfDeath"]
+stream = ExtResource("6_op244")
+
+[node name="TeleportRespawnSFX" type="AudioStreamPlayer2D" parent="BringerOfDeath"]
+stream = ExtResource("7_hhmpq")
+
+[node name="SwordSlashSFX" type="AudioStreamPlayer2D" parent="BringerOfDeath"]
+stream = ExtResource("9_n3uxl")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BringerOfDeath"]
 libraries = {

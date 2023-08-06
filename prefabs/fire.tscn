@@ -71,7 +71,7 @@ position = Vector2(-3, 0)
 rotation = -1.5708
 sprite_frames = ExtResource("1_4xfcr")
 autoplay = "default"
-frame_progress = 0.69572
+frame_progress = 0.0917246
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

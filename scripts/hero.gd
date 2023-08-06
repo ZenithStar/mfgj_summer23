@@ -29,17 +29,16 @@ const sword_beam_class : PackedScene = preload("res://prefabs/sword_beam.tscn")
 @onready var max_hp: float = Globals.hp_scale - 0.01
 @onready var current_hp:float = max_hp
 @export var zoom_rate: float = pow(2.0, 1.0/10.0)
-func _input(event):
+func _unhandled_input(event):
 	if event.is_action("zoom_in"):
 		$Camera2D.zoom = $Camera2D.zoom * zoom_rate
 	elif event.is_action("zoom_out"):
 		$Camera2D.zoom = $Camera2D.zoom / zoom_rate
-	elif event.is_action("toggle_pause") or event.is_action("ui_menu") or event.is_action("ui_cancel"):
-		PauseMenu.pause()
 		
 
 func attack(direction):
 	if sword == null:
+		$SwordSFX.play()
 		sword = sword_class.instantiate()
 		sword.damage *= Globals.damage_scale
 		sword.rotation = atan2(direction.y, direction.x)
@@ -60,9 +59,12 @@ func _physics_process(_delta):
 				else:
 					$AnimatedSprite2D.flip_h = true
 			$AnimatedSprite2D.play("run")
+			if !$StepsSFX.playing:
+				$StepsSFX.play()
 			last_move_vector = input_direction
 		else:
 			$AnimatedSprite2D.play("idle")
+			$StepsSFX.stop()
 		if action_direction.length() > 0:
 			attack(action_direction)
 		if Input.is_action_pressed(action):

@@ -28,5 +28,6 @@ shape = SubResource("CircleShape2D_xs0sw")
 occluder = SubResource("OccluderPolygon2D_wh36l")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(0, -76)
 texture = SubResource("CanvasTexture_6t3jn")

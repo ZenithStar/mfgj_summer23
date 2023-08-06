@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://3xa6maqlkqba" path="res://assets/Texture/Cainos.tres" id="1_twasg"]
 [ext_resource type="PackedScene" uid="uid://b3xt28oe4lu51" path="res://prefabs/torch.tscn" id="2_b4p68"]
-[ext_resource type="AudioStream" uid="uid://bjslc2uy51t12" path="res://assets/LivingMusic/omnious.ogg" id="3_ejroa"]
+[ext_resource type="AudioStream" uid="uid://cldwfrsx0nasc" path="res://assets/LivingMusic/dungeonlloop.ogg" id="3_tltgk"]
 [ext_resource type="PackedScene" uid="uid://dcgx1lnir0hxe" path="res://prefabs/pillar.tscn" id="4_xy2w0"]
 
 [node name="Cave Level" type="Node2D"]
@@ -37,7 +37,7 @@ position = Vector2(-451, -219)
 position = Vector2(495, -214)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_ejroa")
+stream = ExtResource("3_tltgk")
 volume_db = -10.0
 autoplay = true
 

@@ -48,6 +48,8 @@ func orbit(charge:bool = false):
 		return BeehaveTree.FAILURE
 	else:
 		if charge:
+			if not $Squak1SFX.playing:
+				$Squak1SFX.play()
 			command_velocity = (( offset.normalized().orthogonal() * orbit_direction * offset.length() / initial_orbit_distance ) + offset.normalized()).normalized() * decayed_velocity()
 			return BeehaveTree.RUNNING
 		else:
@@ -71,5 +73,6 @@ func death():
 	if death_animation != null:
 		death_animation.play("death")
 	$AnimatedSprite2D.stop()
+	$DeathSFX.play()
 	state = State.DYING
 	
